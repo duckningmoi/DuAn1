@@ -22,7 +22,7 @@ function addcart_size($id_sanpham ,$chonsize){
 
 //Gioit hàng của user đăng nhập:
 function select_cart($id_giohang){
-    $sql = "SELECT * FROM chitiet_giohang g inner join chitiet_sanpham s on(g.id_chitietsanpham=s.id_chitietsanpham) WHERE id_giohang=$id_giohang";
+    $sql = "SELECT * FROM chitiet_giohang g inner join chitiet_sanpham s on(g.id_chitietsanpham=s.id_chitietsanpham) inner join sanpham p on(s.id_sanpham=p.id_sanpham) WHERE id_giohang=$id_giohang";
     $select_cart = pdo_query_one($sql);
     return $select_cart;
 }
