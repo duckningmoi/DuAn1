@@ -1,0 +1,321 @@
+/* CSS HOME */
+i{
+    font-family: 'Font Awesome 5 Pro';
+    color:#585151;
+
+}
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    margin: 0 auto;
+}
+header{
+    height: 200px;
+    background-image: linear-gradient(1800deg, rgb(232, 251, 255), rgb(65, 134, 153));
+}
+.call-lienhe {
+    color: rgb(36, 164, 164);
+    text-decoration: none;
+}
+.call-lienhe p{
+    margin-left: -24px;
+}
+.call-lienhe p:hover{
+        border-radius: 5px;
+    box-shadow: 0px 0px 8px black;
+    transform: scale(1.1);
+}
+.call-lienhe img:hover{
+    border-radius: 5px;
+box-shadow: 0px 0px 8px black;
+transform: scale(1.1);
+}
+a:hover{
+    color: red;
+    transform: scale(1.1);  
+}
+.div a{
+    margin: 5px;
+}
+.div a img:hover{
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px black;
+    transform: scale(1.1);
+}
+.logo {
+    margin-top: -13px;
+    display: flex;
+    justify-content: space-around;
+}
+/* MENU */
+.dropdown {
+    overflow: hidden;
+  }
+  .dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: rgb(93, 179, 203);
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 520px;
+    width: 100px;
+}
+  .dropdown-content a {
+    color: rgb(93, 179, 203);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: aliceblue;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }.dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /* END MENU */
+.sdt-header {
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    color: rgb(93, 179, 203);
+    text-decoration: none;
+}
+
+.div a img:hover {
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px black;
+}
+li{
+    list-style: none;
+    display: inline;
+    margin: 10px;
+}
+ul{
+    text-align: center;
+}
+.nd{
+    margin: 20px;
+    width: 188px;
+}
+.footer-up{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+a:hover{
+    transform: scale(1.1);
+}
+.logo-main h1{
+    text-align: center;
+    font-size: 30px;
+}
+.logo-main p{
+    margin-top: -10px;
+    text-align: center;
+    color: rgb(129, 127, 127);
+}
+.logo-main h1:hover{
+color: rgb(86, 166, 219);
+}
+.time{
+    display: flex;
+    justify-content:center;
+    text-align: center;
+}
+.divtime{
+    font-size: 18px;
+    color: black;
+    margin: 30px;
+}
+.so{
+    border-radius: 5px;
+    padding-top: 9px;
+    color: white;
+    text-align: center;
+    width: 45px;
+    height: 30px;
+    margin-bottom: 15px;
+    background-color: rgb(86, 166, 219);
+}
+main{
+    background-size: 90%;
+    border-radius: 10px;
+    padding: 70px;
+    border: 1px solid rgb(171, 159, 159);
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap: 100px;
+}
+.sp{
+    text-align: center;
+    border: 3px solid rgb(112, 224, 219);
+    width: 219px;
+    height: 370px;
+    background-color: antiquewhite;
+}
+.sp:hover{
+    transform: scale(1.05);
+
+}
+.name-sp{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.name-brand{
+
+    font-size: 12px;
+    color: rgb(129, 127, 127);;
+}
+.giatien{
+    display: flex;
+    justify-content: space-evenly;
+}
+.money{
+    color: red;
+}
+.money-del{
+    text-decoration-line: line-through;
+}
+
+button{
+    color: white;
+    margin-top: 10px;
+    border: none;
+    background-color: rgb(169, 230, 169);
+}
+button:hover{
+    background-color: rgb(109, 211, 223);
+}
+footer{text-align: center;
+    background-color: rgb(184, 127, 237);
+    }
+    .footer{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+footer p{
+    color: rgb(142, 236, 236);
+    font-size: 23px;
+    font-family:'Times New Roman', Times, serif;
+ }
+.div{
+    margin: 30px;
+}
+.div p{
+
+    color: black;
+    font-size: 16px;
+}
+.div p:hover{
+    transform: scale(1.05);
+    color: rgb(76, 183, 183);
+}
+.div a{
+    color: black;
+}
+.div a:hover{
+    font-family: '';
+    text-decoration: none;
+    color: rgb(76, 183, 183);
+}
+/*END CSS HOME */
+
+
+/* CSS CHI TIET SP */
+.ctsp{
+    margin-top: 50px;
+    display: flex;
+    justify-content:center;
+    gap: 70px;
+}
+.ctsp img{
+    margin-right: 150px;
+    border: 1px solid black;
+}
+/* ALL SP */
+.all_sp{
+    margin-left: 8%;
+    display: grid;
+    grid-template-columns: 25% 5% 60%;
+}
+.left ul li{
+    display: block;
+}
+.left ul{
+    text-align: left;
+}
+.left{
+    background-color: #e6e6e6;
+}
+.loc{
+    text-align: center;
+    background-color: #e6e6e6;
+}
+.sp{
+    margin: 20px;
+}
+.all{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+/* END ALL SP */
+
+
+/* CSS LOGIN */
+.dangky{
+    text-align: left;
+    margin-left: 500px;
+}
+.dangky input{
+    width: 400px;
+    height: 30px;
+}
+/* END LOGIN */
+
+
+.boder{
+    border: 0;
+    border-bottom: 1px solid black;
+    outline: 0;
+}
+.box_title{
+margin-left: 130px;
+}
+
+/* CSS CART */
+.cart{
+    display: flex;
+    justify-content: center;
+}
+.cart button{
+    width: 300px;
+    height: 50px;
+    background-color: rgb(230, 46, 46);
+    font-size: 23px;
+
+}
+.donhang{
+    padding: 30px;
+    border: 1px solid black;
+}
+.cart p{
+    font-size: 25px;
+}
