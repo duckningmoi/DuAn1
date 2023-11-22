@@ -22,32 +22,21 @@
                 <button name="M" value="M">M</button>
                 <button name="L" value="L">L</button>
                 <button name="XL" value="XL">XL</button> <br> <br>
-
-                <select name="select_size" id="">
-                    <option value="">Chọn Size</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
                 <button type="submit" name="addcart" value="addcart"><a href="index.php?act=addcart&id_sanpham=<?= $chitiet_sanpham['id_chitietsanpham'] ?>">Add To Cart</a></button>
             </form>
         </div>
+        <div class="description">
+        <p>Mô tả sản phẩm</p>
+        Mã sản phẩm: <?= $one_sanpham['id_sanpham'] ?> <br>
+        Tên sản phẩm:  <?= $one_sanpham['title_sanpham'] ?> <br>
+        Size: M/L/XL <br>
+        Thông số sản phẩm: <br>
+               <div class="des" ><?= $one_sanpham['description_sanpham'] ?> <br></div> <br>
+
+
+*Xin lưu ý rằng bảng size này nhằm mục đích hướng dẫn và kích thước có thể thay đổi một chút. <br>Nếu bạn không chắc chắn về số đo của mình, hãy liên hệ với chúng mình để được tư vấn nhé.
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 </section>
 <br>
 <hr> <br>

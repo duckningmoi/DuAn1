@@ -22,9 +22,17 @@ function addcart_size($id_sanpham ,$chonsize){
 
 //Gioit hàng của user đăng nhập:
 function select_cart($id_giohang){
-    $sql = "SELECT * FROM chitiet_giohang g inner join chitiet_sanpham s on(g.id_chitietsanpham=s.id_chitietsanpham) inner join sanpham p on(s.id_sanpham=p.id_sanpham) WHERE id_giohang=$id_giohang";
-    $select_cart = pdo_query_one($sql);
+    $sql = "SELECT p.title_sanpham , s.id_chitietsanpham , s.size_chitiet , s.gia_chitiet , p.img_sanpham FROM chitiet_giohang g inner join chitiet_sanpham s on(g.id_chitietsanpham=s.id_chitietsanpham) inner join sanpham p on(s.id_sanpham=p.id_sanpham) WHERE id_giohang=$id_giohang";
+    $select_cart = pdo_query($sql);
     return $select_cart;
+}
+
+function select_soluong(){
+    $sql = "SELECT p.title_sanpham , p.img_sanpham , s.gia_chitiet , s.id_chitietsanpham,s.size_chitiet ,COUNT(1) as count FROM chitiet_giohang g inner join chitiet_sanpham s on(g.id_chitietsanpham=s.id_chitietsanpham) inner join sanpham p on(s.id_sanpham=p.id_sanpham)
+    GROUP BY s.id_chitietsanpham ,s.size_chitiet
+    HAVING COUNT(1) >= 1;";
+    $select_soluong = pdo_query($sql);
+    return $select_soluong;
 }
 
 ?>

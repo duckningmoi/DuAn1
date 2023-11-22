@@ -3,48 +3,53 @@
             alert("<?= $thongbao ?>")
         </script>   
              <?php } 
-             $sl = 0; ?>
+             $sl = select_soluong();?>
 <br> <br>
 <section class="cart">
 <div class="giohang">
     <p>Giỏ Hàng</p>
-    <?php
-    for($i = 0 ; $i < count($select_cart) ;$i++){ ?>
-        <?php if($select_cart['id_chitietsanpham'] == $select_cart['id_chitietsanpham']){ ?>
-            <?php $sl = $sl + 1?>
-        <?php }?>
-        <?php } ?>
+    
+    
 
-        <?php foreach($select_cart as $sl_cart){ ?>
+    <?php
+    foreach($sl as $s) { ?>
     <form action="" method="post">
-    <div class="hinhanh"><img src="Images/sp/<?= $select_cart['mausang'] ?>" alt="" width="120px"></div>
+    <div class="hinhanh"><img src="Images/sp/<?= $s['img_sanpham'] ?>" alt="" width="120px"></div>
     <div class="thongtin">
-        <div class="tt_name"><?= $select_cart['title_sanpham'] ?></div>
-        <div class="tt_size"><?= $select_cart['size_chitiet'] ?></div>
-        <div class="tt_sl"><?= $sl ?></div>
+        <div class="tt_name"><?= $s['title_sanpham'] ?></div>
+        <div class="tt_size"><?= $s['size_chitiet'] ?></div>
+        <div class="tt_sl">
+        Số Lượng:
+        <button type="submit" name="cong" >-</button>    
+         <?= $s['count'] ?>
+        <button type="submit" name="tru" >+</button>
+        </div>
     </div>
     <div class="giacuoi">
-        <a href="">Xóa Sản Phẩm</a><br> <br> <br> <br> <br>
-    <div class="tt_gia"><?= $select_cart['gia_chitiet']?>đ</div>
+        <a href="index.php?act=delcart&id_chitietsanpham=<?= $s['id_chitietsanpham'] ?>">Xóa Sản Phẩm</a><br> <br> <br> <br> <br>
+    <div class="tt_gia"><?= $s['gia_chitiet']?>đ</div>
     </div>
+
     </form>
-    <?php } ?>
+    <hr>
+<?php } ?>
 
    
-<hr>
+
 </div>
 
-
 <div class="donhang">
+<p>Thanh Toán</p>
+
 <?php 
     $sum = 0;
     foreach($select_cart as $sl_cart){
-        $sum = $sum + $select_cart['gia_chitiet'];
+        $sum = $sum + $sl_cart['gia_chitiet'];
     }
     ?>
-    Tổng Tiền: <?= $sum ?> <br>
+    Tổng Tiền: <?= $sum ?>đ <br>
     
-    <button>Thanh Toán</button>
+    <button class="tt">Thanh Toán</button>
 </div>
 
 
