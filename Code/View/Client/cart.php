@@ -1,10 +1,11 @@
 <?php 
+
 if (isset($thongbao)) { ?>
             <script>
             alert("<?= $thongbao ?>")
         </script>   
              <?php } 
-             $sl = select_soluong();?>
+             $sl = select_soluong($id_giohang['id_giohang']);?>
 <br> <br>
 <section class="cart">
 <div class="giohang">
@@ -21,9 +22,9 @@ if (isset($thongbao)) { ?>
         <div class="tt_size"><?= $s['size_chitiet'] ?></div>
         <div class="tt_sl">
         Số Lượng:
-        <button type="submit" name="cong" >-</button>    
+<button type="submit" name="tru" value="<?= $s['id_chitietsanpham'] ?>" >-</button>
          <?= $s['count'] ?>
-        <button type="submit" name="tru" >+</button>
+         <button type="submit" name="cong" value="<?= $s['id_chitietsanpham'] ?>" >+</button>
         </div>
     </div>
     <div class="giacuoi">

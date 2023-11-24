@@ -70,7 +70,7 @@
 <?php if(isset($id_user)) {?>
             <?php $id_user = select_tk_ez($_SESSION['user']); ?>
                 <form action="index.php?act=addbl&id_sanpham=<?=$one_sanpham['id_sanpham']?>" method="POST">
-                    <input class="noidung_binhluan" type="text" name="noidung_binhluan" placeholder="bình luận dưới tên <?= $id_user['ten_user'] ?>">
+                    <input style="width: 300px;" class="noidung_binhluan" type="text" name="noidung_binhluan" placeholder="bình luận dưới tên <?= $id_user['ten_user'] ?>">
                     <a href="index.php?act=addbl&id_sanpham=<?=$one_sanpham['id_sanpham']?>"><button type="submit" name="guibinhluan" required>Gửi Bình Luận</button></a>
                 </form>
 <?php } else{ ?>

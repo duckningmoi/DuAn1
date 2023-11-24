@@ -19,11 +19,12 @@ if(isset($_SESSION['user'])){
                 <i class="far fa-user"></i>
                 <input class="boder" type="text" name="user" placeholder="Tên Đăng Nhập" require>
             </div>
-            <div> <br><br>
+            <div> <br><br> <br>
                 <i class="fas fa-key"></i>
                 <input class="boder" type="password" name="pass" placeholder="Mật Khẩu" require>
+            <div>
                 <br> <br>
-                <button type="submit" value="Đăng Nhập" name="dangnhap">Đăng Nhập</button>
+                <button type="submit" value="Đăng Nhập" name="dangnhap">Đăng Nhập</button> <br>
                 Chưa có tài khoản?<a href="index.php?act=dangky"> Đăng ký ngay</a>
         </form>
     </div>

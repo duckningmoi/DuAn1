@@ -15,7 +15,7 @@
                 <div>
                      <p>Tên đăng nhập</p>
                     <input class="boder" type="text" name="user" placeholder="User Name" >
-                </div>
+                </div> <br>
                  <p>Mật khẩu</p>
                 <div>
                     <input class="boder" type="password" name="pass" placeholder="PassWord">
@@ -27,11 +27,11 @@
                  <p>Địa Chỉ</p>
                 <div>
                     <input class="boder" type="text" name="address" placeholder="Địa Chỉ">
-                </div>
+                </div> <br>
                  <p>SĐT</p>
                 <div>
                     <input class="boder" type="text" name="tel" placeholder="Số Điện Thoại">
-                </div>
+                </div> <br> <br>
                 <?php if( isset($thongbao)){ echo $thongbao,"<br>";}  ?>
                 <button type="submit" value="Đăng ký" name="dangky">Đăng Ký</button>
                      Đã có tài khoản?<a href="index.php?act=dangnhap"> Đăng nhập ngay</a>

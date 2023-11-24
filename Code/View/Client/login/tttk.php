@@ -6,7 +6,7 @@ if(empty($_SESSION['user'])){
 <hr><br><br> <section class="dangky">
     <div class="box_title" style="font-size: 25px;">Thông Tin Tài Khoản</div>
     <div class="box_content form_account">
-        <form action="" method="post">
+        <form class="formedittttk" action="" method="post">
        
         
         <?php if (isset($thongbao)) { ?>
@@ -17,7 +17,7 @@ if(empty($_SESSION['user'])){
 <br> <br>
             <div>
                 <i class="far fa-user"></i>
-                <label for="">Tên Người Dùng: </label>
+                <label for="">Tên Người Dùng: </label> 
                 <?= $tkez['ten_user'] ?>
             </div>
             <div> <br><br>
@@ -57,7 +57,7 @@ if(empty($_SESSION['user'])){
     <br> <br>
                 <a href="index.php?act=edittttk">Sửa Tài Khoản</a>
                 <?php if(isset($_SESSION['admin'])){ ?>
-                    <a href="">Đăng nhập Admin</a>
+                    <a href="../../../../../../../GitHub/DuAn1/DuAn1/Code/View/Admin/index.php">Đăng nhập Admin</a>
                <?php }?>
                <button type="submit" value="dangxuat"> <a href="index.php?act=dangxuat"> Đăng Xuất </a></button>
         </form>
