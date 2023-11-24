@@ -53,7 +53,6 @@
                 <a href="index.php?act=sanpham&iddm=" class="dropbtn" >Shop</a>
                 <div class="dropdown-content">
                 <?php 
-                include "Model/danhmuc.php";
                 $all_danhmuc = all_danhmuc();
                 ?>
                 <?php foreach($all_danhmuc as $danhmuc) : ?>
@@ -61,10 +60,10 @@
                     <?php endforeach ?>  
                     </div>          
                 </li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Vergency Group</a></li>
-                <li><a href="">Vergency Instagram</a></li>
+                <li><a href="index.php?act=blog">Blog</a></li>
+                <li><a href="index.php?act=contact">Contact</a></li>
+                <li><a href="index.php?act=about">About</a></li>
+                <li><a href="index.php?act=group">Vergency Group</a></li>
+                <li><a href="index.php?act=ins">Vergency Instagram</a></li>
             </ul>
         </nav>

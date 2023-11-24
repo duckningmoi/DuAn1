@@ -5,6 +5,7 @@ include "Model/sanpham.php";
 include "Model/taikhoan.php";
 include "Model/cart.php";
 include "Model/binhluan.php";
+include "Model/danhmuc.php";
 include "View/Client/header.php";
 $all_sanpham = all_sanpham_home();
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
@@ -119,6 +120,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                         break;
                     } else{
                         insert_user($gmail_user,$sdt_user,$tentaikhoan_user,$diachi_user,$password_user,$avatar);
+                        $id_user = select_tk_ez($tentaikhoan_user);
+                        addcartkhidangky($id_user['id_user']);
                         $thongbao = "Thêm Thành Công";
                         break;
                     }
@@ -201,10 +204,17 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         
         case "cart":
-            if(isset($_POST['cong'])  && ($_POST['cong'])) {
-                
+            if(empty($_SESSION['user'])){
+                header("location: index.php?act=dangnhap");
+                die;
             }
             $id_giohang = giohang_user($_SESSION['user']);
+            if(isset($_POST['cong'])  && ($_POST['cong'])) {
+                cong($_POST['cong'] , $id_giohang['id_giohang']);
+            }
+            if(isset($_POST['tru'])  && ($_POST['tru'])) {
+                tru($_POST['tru']);
+            }
             $select_cart = select_cart($id_giohang['id_giohang']);
             include "View/Client/cart.php";
             break;
@@ -219,6 +229,25 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "View/Client/cart.php";
             break;
 
+        
+
+        // code quan
+        case "blog":
+            include "View/Client/blog.php";
+            break;
+        case "about":
+            include "View/Client/about.php";
+            break;
+        case "contact":
+            include "View/Client/contact.php";
+            break;
+        case "ins":
+            include "View/Client/ins.php";
+            break;
+        case "group":
+            include "View/Client/group.php";
+            break;
+         // end code quan
 }
 
         
