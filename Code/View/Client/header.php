@@ -32,7 +32,12 @@
                 <div class="div">
 
                     <a href=""><img src="Images/search.png" alt="" width="30px" height="30px"></a>
-                    <a href="index.php?act=dangnhap"><img src="Images/user.png" alt="" width="30px" height="30px"></a>
+                    <?php if(isset($_SESSION['user'])){ ?>
+                        <?php $avatar = select_tk_ez($_SESSION['user']) ?>
+                        <a href="index.php?act=dangnhap"><img style="border-radius: 30%;" src="Images/<?= $avatar['avatar'] ?>" alt="" width="30px" height="30px"></a>
+                    <?php } else{ ?>
+                        <a href="index.php?act=dangnhap"><img src="Images/user.png" alt="" width="30px" height="30px"></a>
+                    <?php } ?>
                     <a href="index.php?act=cart"><img src="Images/shopping.png" alt="" width="30px" height="30px"></a>
 
                 </div>

@@ -42,6 +42,10 @@ function queryrole($user,$pass) {
     
 }
 
+function edittttk($ten_user , $sdt_user , $diachi_user , $gmail_user , $password_user , $avatar , $tentaikhoan_user){
+    $sql = "UPDATE user SET ten_user='$ten_user' , sdt_user='$sdt_user' , diachi_user='$diachi_user' , gmail_user='$gmail_user' , password_user='$password_user' , avatar='$avatar' WHERE tentaikhoan_user='$tentaikhoan_user'";
+    pdo_execute($sql);
+}
 function dangxuat(){
     session_destroy();
 }

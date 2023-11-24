@@ -1,4 +1,5 @@
-<?php if (isset($thongbao)) { ?>
+<?php 
+if (isset($thongbao)) { ?>
             <script>
             alert("<?= $thongbao ?>")
         </script>   
@@ -13,7 +14,7 @@
 
     <?php
     foreach($sl as $s) { ?>
-    <form action="" method="post">
+    <form class="formcart" action="" method="post">
     <div class="hinhanh"><img src="Images/sp/<?= $s['img_sanpham'] ?>" alt="" width="120px"></div>
     <div class="thongtin">
         <div class="tt_name"><?= $s['title_sanpham'] ?></div>
