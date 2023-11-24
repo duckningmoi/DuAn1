@@ -204,7 +204,7 @@ button:hover{
     background-color: rgb(109, 211, 223);
 }
 footer{text-align: center;
-    background-color: rgb(184, 127, 237);
+    background-image: linear-gradient(1800deg, rgb(232, 251, 255), rgb(65, 134, 153));
     }
     .footer{
         display: flex;
@@ -240,6 +240,71 @@ footer p{
 
 
 /* CSS CHI TIET SP */
+
+.image {
+    position: relative;background: #fff;display: flex;justify-content: center;
+    align-items: center;border: 1px solid #000;color: #000;
+   }
+   .image:before {
+    content: '';position: absolute;top: -2px;left: -2px;right: -2px;bottom: -2px;background: #fff;z-index: -1;transform: skew(2deg, 2deg);
+   }
+   .image:nth-child(1):before {
+    background: linear-gradient(315deg, #ff0057, #e64a19);
+   }
+   .image:nth-child(2):before {
+    background: linear-gradient(315deg, #89ff00, #00bcd4);
+   }
+   .image:nth-child(3):before {
+    background: linear-gradient(315deg, #e91e63, #5d02ff);
+   }
+   .image:nth-child(4):before {
+    background: linear-gradient(315deg, #ff0000, #ffc107);
+   }
+   
+.addtocart{
+    border-radius: 5%;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    color: white;
+
+}
+.addtocart:hover{
+    background-color: rgb(230, 113, 113);
+}
+.addtocart a{
+    color: white;
+}
+.addcart{
+    border-radius: 3px;
+    border: none;
+    background: #5ec9ff;
+    height: 48px;
+    width: 170px;
+
+}
+.addcart a{
+    text-align: center;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.fa-thin{
+    margin-right: 20px;
+}
+.mota{
+    width: 117px;
+    position: relative;background: #fff;display: flex;justify-content: center;
+    align-items: center;color: #000;
+}
+
+.mota:before {
+    content: '';position: absolute;top: -2px;left: -2px;right: -2px;bottom: -2px;background: #fff;z-index: -1;transform: skew(2deg, 2deg);
+   }
+.mota:before {
+    background: linear-gradient(315deg, #ff0000, #ffc107);
+   }
 .des{
     width: 470px;
 }
@@ -249,9 +314,16 @@ footer p{
     justify-content:center;
     gap: 70px;
 }
+.image{
+    margin-left: 200px;
+}
 .ctsp img{
     margin-right: 150px;
-    border: 1px solid black;
+
+}
+.tip{
+    border-bottom: rgb(148, 148, 255) solid 3px;
+    border-right: rgb(148, 148, 255) solid 5px;
 }
 /* ALL SP */
 .all_sp{
@@ -304,6 +376,27 @@ margin-left: 130px;
 }
 
 /* CSS CART */
+
+.formcart {
+    position: relative;background: #fff;display: flex;justify-content: center;
+    align-items: center;border: 1px solid #000;color: #000;
+   }
+   .formcart:before {
+    content: '';position: absolute;top: -2px;left: -2px;right: -2px;bottom: -2px;background: #fff;z-index: -1;transform: skew(2deg, 2deg);
+   }
+   /* .formcart:before {
+    background: linear-gradient(315deg, #ff0057, #e64a19);
+   } */
+   .formcart:before {
+    background: linear-gradient(315deg, #89ff00, #00bcd4);
+   }
+   /* .formcart:before {
+    background: linear-gradient(315deg, #e91e63, #5d02ff);
+   }
+   .formcart:before {
+    background: linear-gradient(315deg, #ff0000, #ffc107);
+   } */
+   
 .cart{
     display: flex;
     justify-content: center;
@@ -327,4 +420,30 @@ margin-left: 130px;
     justify-content: space-between;
     margin: 20px;
     gap: 20px;
+}
+
+/* Bình LUận */
+
+table{
+    border: 1px solid black;
+}
+td{
+    border: 1px solid black;
+}tr{
+    border: 1px solid black; 
+}
+.namebluan{
+    width: 80px;
+    border-top: rgb(148, 148, 255) solid 3px;
+    border-left: rgb(148, 148, 255) solid 5px;
+}
+.all_binhluan{
+    margin-left: 200px;
+    margin-bottom: 50px;
+}
+.box_binhluan{
+    margin-left: 200px;
+}
+.noidung_binhluan{
+    width: 300px;
 }

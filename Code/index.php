@@ -1,15 +1,20 @@
 <?php
 session_start();
 include "Model/pdo.php";
-include "View/Client/header.php";
 include "Model/sanpham.php";
 include "Model/taikhoan.php";
 include "Model/cart.php";
+include "Model/binhluan.php";
+include "View/Client/header.php";
 $all_sanpham = all_sanpham_home();
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
         case "chitietsanpham":
+            if(isset($_SESSION['user'])){
+            $id_user = select_tk_ez($_SESSION['user']);
+            }
+            $binhluan_one_sp = binhluan_one_sp($_GET['id_sanpham']);
             $id_sanpham = $_GET['id_sanpham'];
             if ((isset($_POST['M']))) {
                 $size = $_POST['M'];
@@ -36,12 +41,59 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $one_sanpham = one_sanpham($id_sanpham);
                 include "View/Client/chitietsanpham.php";
             } else {
+
+                $alert = "Vui lòng chọn size";
                 $id_sanpham = $_GET['id_sanpham'];
                 $one_sanpham = one_sanpham($id_sanpham);
                 $sl_1_loai = sl_1_loai($id_sanpham);
                 include "View/Client/chitietsanpham.php";
             }
+           
 
+            break;
+        case "addbl":
+            $id_user = select_tk_ez($_SESSION['user']);
+            $id_sanpham = $_GET['id_sanpham'];
+            $noidung_binhluan = $_POST['noidung_binhluan'];
+            insert_binhluan($id_sanpham, $noidung_binhluan ,$id_user['id_user']);
+            
+
+
+            $id_user = select_tk_ez($_SESSION['user']);
+            $binhluan_one_sp = binhluan_one_sp($_GET['id_sanpham']);
+            $id_sanpham = $_GET['id_sanpham'];
+            if ((isset($_POST['M']))) {
+                $size = $_POST['M'];
+                $chitiet_sanpham = chitiet_sanpham($size, $id_sanpham);
+                if ($chitiet_sanpham == false) {
+                    $thongbao = "hết hàng";
+                }
+                $one_sanpham = one_sanpham($id_sanpham);
+                include "View/Client/chitietsanpham.php";
+            } else if (isset($_POST['XL'])) {
+                $size = $_POST['XL'];
+                $chitiet_sanpham = chitiet_sanpham($size, $id_sanpham);
+                $one_sanpham = one_sanpham($id_sanpham);
+                if ($chitiet_sanpham == false) {
+                    $thongbao = "hết hàng";
+                }
+                include "View/Client/chitietsanpham.php";
+            } else if (isset($_POST['L'])) {
+                $size = $_POST['L'];
+                $chitiet_sanpham = chitiet_sanpham($size, $id_sanpham);
+                if ($chitiet_sanpham == false) {
+                    $thongbao = "hết hàng";
+                }
+                $one_sanpham = one_sanpham($id_sanpham);
+                include "View/Client/chitietsanpham.php";
+            } else {
+
+                $alert = "Vui lòng chọn size";
+                $id_sanpham = $_GET['id_sanpham'];
+                $one_sanpham = one_sanpham($id_sanpham);
+                $sl_1_loai = sl_1_loai($id_sanpham);
+                include "View/Client/chitietsanpham.php";
+            }
             break;
         case "sanpham":
             if(isset($_GET['iddm'])){
@@ -105,13 +157,42 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $tkez = select_tk_ez($_SESSION['user']);
             include "View/Client/login/tttk.php";
             break;
+        case "edittttk":
+                $tkez = select_tk_ez($_SESSION['user']);
+                if(isset($_POST['edittttk']) && ($_POST['edittttk'])){
+                    $password_userold = $_POST['password_userold'];
+                    $ten_user = $_POST['ten_user'];
+                    $password_user = $_POST['password_usernew'];
+                    $sdt_user = $_POST['sdt_user'];
+                    $diachi_user = $_POST['diachi_user'];
+                    $gmail_user = $_POST['gmail_user'];
+                    $file = $_FILES['hinh'];
+                    if($file['size']>0){
+                    $avatar = $file['name'];
+                    move_uploaded_file($file['tmp_name'], "Images/" . $avatar);
+                    
+                    }
+                    else{
+                        $avatar = $_POST['avatar'];
+                    }
+                    if($password_userold == $tkez['password_user']){
+                        edittttk($ten_user , $sdt_user , $diachi_user , $gmail_user , $password_user , $avatar , $_SESSION['user']);
+                        $thongbao = "Cập Nhật Thành Công";
+                    }
+                    else{
+                        $thongbao = "Vui Lòng Nhập Đúng Mật Khẩu Cũ";
+                    }
+                    
+                }
+                include "View/Client/login/edittttk.php";
+                break;
         case "dangxuat":
                 dangxuat();
                 include "View/Client/home.php";
             
             break;
 
-        case "addcart":            
+        case "addcart":    
                 $id_giohang = giohang_user($_SESSION['user']);
                 addcarrt($_GET['id_sanpham'] , $id_giohang['id_giohang']);
                 $thongbao = "Đã Thêm Vào Giỏ Hàng";
@@ -120,6 +201,19 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         
         case "cart":
+            if(isset($_POST['cong'])  && ($_POST['cong'])) {
+                
+            }
+            $id_giohang = giohang_user($_SESSION['user']);
+            $select_cart = select_cart($id_giohang['id_giohang']);
+            include "View/Client/cart.php";
+            break;
+        case "delcart":
+            $id_chitietsanpham = $_GET['id_chitietsanpham'];
+            delete_cart($id_chitietsanpham);
+            if(empty($_SESSION['user'])){
+                header("location: index.php?act=dangnhap");
+            }       
             $id_giohang = giohang_user($_SESSION['user']);
             $select_cart = select_cart($id_giohang['id_giohang']);
             include "View/Client/cart.php";

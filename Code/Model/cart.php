@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 function giohang_user($tentaikhoan_user){
 $sql = "SELECT g.id_giohang FROM giohang g INNER JOIN user u ON(g.id_user=u.id_user) WHERE tentaikhoan_user='$tentaikhoan_user'";
 $giohang_user = pdo_query_one($sql);
@@ -34,5 +30,10 @@ function select_soluong(){
     $select_soluong = pdo_query($sql);
     return $select_soluong;
 }
+function delete_cart($id_chitietsanpham) {
+    $sql = "DELETE FROM chitiet_giohang WHERE id_chitietsanpham='$id_chitietsanpham'";
+    pdo_execute($sql);
+}
+
 
 ?>
