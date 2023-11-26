@@ -89,3 +89,4 @@
 <button>Xem chi tiết</button>
 </div> -->
 </main>
+<?php include "View/phantrang.php" ?>

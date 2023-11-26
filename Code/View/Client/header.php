@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
 </head>
 
 <body>
@@ -63,7 +63,7 @@
                 <li><a href="index.php?act=blog">Blog</a></li>
                 <li><a href="index.php?act=contact">Contact</a></li>
                 <li><a href="index.php?act=about">About</a></li>
-                <li><a href="index.php?act=group">Vergency Group</a></li>
-                <li><a href="index.php?act=ins">Vergency Instagram</a></li>
+                <li><a href="https://web.facebook.com/?_rdc=1&_rdr">Vergency Group</a></li>
+                <li><a href="https://www.instagram.com/">Vergency Instagram</a></li>
             </ul>
         </nav>

@@ -9,7 +9,12 @@ function sl_1_loai($id_sanpham){
     $sl_1_loai = pdo_query_one($sql);
     return $sl_1_loai;
 }
-function all_sanpham_home(){
+function all_sanpham_home($batdau){
+    $sql = "select * from sanpham s inner join danhmuc d on(d.id_danhmuc=s.id_danhmuc) LIMIT $batdau,8";
+    $all_sanpham = pdo_query($sql);
+    return $all_sanpham;  
+}
+function all_sanpham(){
     $sql = "select * from sanpham s inner join danhmuc d on(d.id_danhmuc=s.id_danhmuc)";
     $all_sanpham = pdo_query($sql);
     return $all_sanpham;  
