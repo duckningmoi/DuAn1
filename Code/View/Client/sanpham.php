@@ -26,8 +26,10 @@
             <hr>
         </div>
         <div class="all">
-            <?php foreach ($all_sanpham as $allsp) : ?>
-                <?php if ($allsp['id_danhmuc'] == $iddm) { ?>
+        <?php foreach ($all_sanpham as $allsp) : ?>
+        <?php if ($allsp['id_danhmuc'] == $iddm) { ?>
+            
+                
                     <a href="index.php?act=chitietsanpham&id_sanpham=<?= $allsp['id_sanpham'] ?>">
 
                         <div style="transform:none" class="sp">
@@ -46,7 +48,10 @@
                             <button>Xem chi tiết</button>
                         </div>
                     </a>
-                <?php break; } else { ?>
+                
+
+            <?php } elseif($iddm == ''){ ?>
+               
                     <a href="index.php?act=chitietsanpham&id_sanpham=<?= $allsp['id_sanpham'] ?>">
 
                         <div style="transform:none" class="sp">
@@ -65,7 +70,8 @@
                             <button>Xem chi tiết</button>
                         </div>
                     </a>
-                <?php } ?>
+                
+            <?php } ?>
             <?php endforeach ?>
 
 

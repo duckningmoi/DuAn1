@@ -49,4 +49,11 @@ function cong($id_chitietsanpham , $id_giohang){
     $sql = "INSERT INTO chitiet_giohang(`id_chitietsanpham`, `id_giohang`) VALUES ('$id_chitietsanpham' , '$id_giohang')";
     pdo_execute($sql);
 }
+
+//THANH TOÁN
+function voucher($ma_voucher){
+    $sql = "SELECT * FROM voucher WHERE ma_voucher='$ma_voucher' ";
+    $voucher = pdo_query($sql);
+    return $voucher;
+}
 ?>

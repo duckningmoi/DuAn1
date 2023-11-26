@@ -17,7 +17,7 @@ if(empty($_SESSION['user'])){
 <br> <br>
             <div>
                 <i class="far fa-user"></i>
-                <label for="">Tên Người Dùng: </label> 
+                <label for="">Tên Người Dùng:</label> 
                 <?= $tkez['ten_user'] ?>
             </div>
             <div> <br><br>

@@ -6,8 +6,9 @@ include "Model/taikhoan.php";
 include "Model/cart.php";
 include "Model/binhluan.php";
 include "Model/danhmuc.php";
+include "Model/phantrang.php";
 include "View/Client/header.php";
-$all_sanpham = all_sanpham_home();
+
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -42,7 +43,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $one_sanpham = one_sanpham($id_sanpham);
                 include "View/Client/chitietsanpham.php";
             } else {
-
                 $alert = "Vui lòng chọn size";
                 $id_sanpham = $_GET['id_sanpham'];
                 $one_sanpham = one_sanpham($id_sanpham);
@@ -100,7 +100,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             if(isset($_GET['iddm'])){
                 $iddm = $_GET['iddm'];
             }
-            $all_sanpham = all_sanpham_home();
+            $all_sanpham = all_sanpham();
             include "View/Client/sanpham.php";
             break;
 
@@ -132,6 +132,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             include "View/Client/login/dangky.php";
             break;
+
         case "dangnhap":
             if (isset($_POST['dangnhap'])) {
                 $loginMess = dangnhap($_POST['user'], $_POST['pass']);
@@ -225,7 +226,6 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 header("location: index.php?act=dangnhap");
             }       
             $id_giohang = giohang_user($_SESSION['user']);
-            $select_cart = select_cart($id_giohang['id_giohang']);
             include "View/Client/cart.php";
             break;
 
@@ -248,12 +248,34 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "View/Client/group.php";
             break;
          // end code quan
+
+         case "thanhtoan":
+            if(isset($_POST['sudungvoucher']) && ($_POST['sudungvoucher'])){
+                $ma_voucher = $_POST['ma_voucher'];
+                $voucher = voucher($ma_voucher);
+            }
+            var_dump($voucher);
+            $id_giohang = giohang_user($_SESSION['user']);
+            $select_cart = select_cart($id_giohang['id_giohang']);
+
+            $tkez = select_tk_ez($_SESSION['user']);
+            include "View/Client/thanhtoan.php";
+            break;
 }
 
-        
+
 
 
 } else {
+    if(empty($_GET['page'])){
+        $_GET['page'] = 1;
+    }
+    $total_record = total_record();
+    $batdau = ($_GET['page']-1) * 8;
+    $all_sanpham = all_sanpham_home($batdau);
+    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $limit = 8;
+    $total_page = ceil($total_record['count'] / $limit);
     include "View/Client/home.php";
 }
 include "View/Client/footer.php";

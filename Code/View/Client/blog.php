@@ -11,9 +11,9 @@
     <div class="baiviet">
         <h1>Bài viết mới nhất</h1>       
         <div class="baiviet-blog">
-            <img src="../Code/Images/sp/c.png" alt="">
-            <img src="../Code/Images/sp/d.png" alt="">
-            <img src="../Code/Images/sp/e.png" alt="">
+            <img src="../Code/Images/anhquan1.jpg" alt="">
+            <img src="../Code/Images/anhquan2.jpg" alt="">
+            <img src="../Code/Images/anhquan3.jpg" alt="">
         </div>
     </div>
 </div>
