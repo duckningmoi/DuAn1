@@ -250,16 +250,47 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
          // end code quan
 
          case "thanhtoan":
+           
+
             if(isset($_POST['sudungvoucher']) && ($_POST['sudungvoucher'])){
                 $ma_voucher = $_POST['ma_voucher'];
                 $voucher = voucher($ma_voucher);
+                foreach($voucher as $voucher){
+                if($voucher['role_voucher'] == 1){
+                    $voucher_vanchuyen = 35000;
+                }
+                else{
+                    $voucher_sanpham = $voucher['giam'];                   
+                }
+                
             }
-            var_dump($voucher);
+            }
             $id_giohang = giohang_user($_SESSION['user']);
             $select_cart = select_cart($id_giohang['id_giohang']);
-
             $tkez = select_tk_ez($_SESSION['user']);
+            if(isset($_POST['hoantatdonhang']) && ($_POST['hoantatdonhang'])){
+             $diachi_giaohang = $_POST['bill_diachi'];   
+             $sdt_nguoinhan = $_POST['bill_sdt'];
+             $ten_nguoinhan = $_POST['name'];   
+             $phuongthuc_thanhtoan = "COD";
+             $tongtien = $_POST['tongtien'];   
+             $id_user = $tkez['id_user'];
+             $thoigiandathang = $_POST['thoigiandathang'];
+             $thongbao = "Đặt hàng thành công";
+             hoantatdonhang($diachi_giaohang , $sdt_nguoinhan , $ten_nguoinhan , $phuongthuc_thanhtoan , $tongtien , $id_user , $thoigiandathang); 
+             $sl = select_soluong($id_giohang['id_giohang']); 
+             foreach($sl as $s){
+            
+             $id_bill = select_bill($thoigiandathang);
+             themchitiet_bill($s['count'] , $s['size_chitiet'] , $s['gia_chitiet'] , $id_bill['id_bill'] , $s['id_chitietsanpham']);
+            }
+             xoatatcagiohang($id_giohang['id_giohang']);
+            }
             include "View/Client/thanhtoan.php";
+            break;
+
+        case "bill":
+            include "View/Client/bill.php";
             break;
 }
 

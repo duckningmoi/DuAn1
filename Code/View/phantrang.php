@@ -2,7 +2,7 @@
     .pagination {
         border: 1px solid black;
         margin-top: 10px;
-        margin-left: 600px;
+        margin-left: 650px;
         display: inline-block;
     }
 
@@ -22,8 +22,7 @@
 
 
     .pagination a:hover {
-        background-color: #00FFFF;
-        border-radius: 5px;
+        background-color: #00CCCC;
     }
 </style>
 

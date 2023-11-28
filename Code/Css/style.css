@@ -1,4 +1,26 @@
 /* CSS HOME */
+.vach1{
+    display: flex;
+    justify-content: space-evenly;
+}
+.vach2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.vach11{
+    
+    margin-left: 3%;
+    width: 40%;
+    height: 2px;
+    border: 2px solid black;
+}
+.vach{
+    
+    margin-left: 3%;
+    width: 40%;
+    height: 0.5px;
+    border-top: 0.01px solid black;
+}
 i{
     font-family: 'Font Awesome 5 Pro';
     color:#585151;
@@ -19,7 +41,7 @@ body {
 }
 header{
     height: 200px;
-    background-image: linear-gradient(1800deg, rgb(232, 251, 255), rgb(65, 134, 153));
+    background-image: linear-gradient(1800deg, rgb(255, 255, 255), rgb(65, 134, 153));
 }
 .call-lienhe {
     color: rgb(36, 164, 164);
@@ -29,7 +51,7 @@ header{
     margin-left: -24px;
 }
 .call-lienhe p:hover{
-        border-radius: 5px;
+    border-radius: 5px;
     box-shadow: 0px 0px 8px black;
     transform: scale(1.1);
 }
@@ -40,7 +62,7 @@ transform: scale(1.1);
 }
 a:hover{
     color: red;
-    transform: scale(1.1);  
+    transform: scale(1.05);  
 }
 .div a{
     margin: 5px;
@@ -124,7 +146,7 @@ ul{
     text-align: center;
 }
 a:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .logo-main h1{
     text-align: center;
@@ -151,21 +173,22 @@ color: rgb(86, 166, 219);
 .so{
     border-radius: 5px;
     padding-top: 9px;
+    padding-bottom: 9px;
     color: white;
     text-align: center;
     width: 45px;
-    height: 30px;
+    height: 35px;
     margin-bottom: 15px;
     background-color: rgb(86, 166, 219);
 }
 main{
     background-size: 90%;
     border-radius: 10px;
-    padding: 70px;
-    border: 1px solid rgb(171, 159, 159);
     display: grid;
+    padding-left: 150px;
+    padding-right: 180px;
     grid-template-columns:1fr 1fr 1fr 1fr;
-    gap: 100px;
+    gap: 70px;
 }
 .sp{
     text-align: center;
@@ -175,7 +198,8 @@ main{
     background-color: antiquewhite;
 }
 .sp:hover{
-    transform: scale(1.05);
+    box-shadow: 0 0 8px black;
+    transform: scale(1.02);
 
 }
 .name-sp{

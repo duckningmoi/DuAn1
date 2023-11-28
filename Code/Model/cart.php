@@ -56,4 +56,23 @@ function voucher($ma_voucher){
     $voucher = pdo_query($sql);
     return $voucher;
 }
+
+function hoantatdonhang($diachi_giaohang , $sdt_nguoinhan , $ten_nguoinhan  , $phuongthuc_thanhtoan , $tongtien , $id_user , $thoigiandathang){
+    $sql = "INSERT INTO bill (`diachi_giaohang` , `sdt_nguoinhan` , `ten_nguoinhan` , `phuongthuc_thanhtoan` , `tongtien` , `id_user` , `thoigiandathang`) VALUES ('$diachi_giaohang' , '$sdt_nguoinhan' , '$ten_nguoinhan'  , '$phuongthuc_thanhtoan' , '$tongtien' , '$id_user' , '$thoigiandathang')";
+    pdo_execute($sql);
+}
+function select_bill($thoigiandathang){
+    $sql = "SELECT * FROM bill WHERE thoigiandathang='$thoigiandathang'";
+    $select_bill = pdo_query_one($sql);
+    return $select_bill;
+}
+function themchitiet_bill($soluong_chitiet , $size_chitiet , $gia_chitiet , $id_bill , $id_chitietsanpham){
+    $sql = "INSERT INTO chitiet_bill (`soluong_chitiet` , `size_chitiet` , `gia_chitiet` , `id_bill` , `id_chitietsanpham`) VALUES ('$soluong_chitiet' , '$size_chitiet' , '$gia_chitiet' , '$id_bill' , '$id_chitietsanpham')";
+    pdo_execute($sql);
+}
+
+function xoatatcagiohang($id_giohang){
+    $sql = "DELETE FROM chitiet_giohang WHERE id_giohang=$id_giohang";
+    pdo_execute($sql);
+}
 ?>

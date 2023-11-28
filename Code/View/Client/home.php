@@ -1,4 +1,4 @@
-<section class="banner">
+<section id="banner" class="banner">
     <img id="banner" src="Images/banner.webp" alt="" width="1500px"> 
 </section>
 
@@ -28,10 +28,16 @@
 </section>
 
 <section class="logo-main">
-    <hr>
+    <div class="vach1">
+        <div class="vach11"></div>
+        <div class="vach11"></div>
+    </div>
 <h1>VERGENCY</h1>
 <p>Satisfy You - Happy Us.</p>
-<hr>
+<div class="vach2">
+        <div class="vach"></div>
+        <div class="vach"></div>
+</div>
 <div class="time">
 <div class="divtime">
     <div class="so">23</div>
@@ -52,7 +58,8 @@
 </div>
 </section>
 
-<main style="background-image: url(Images/banner2.webp);">
+<main style="background-image: linear-gradient(1800deg , rgb(255, 255, 255), rgb(65, 134, 153) , rgb(255, 255, 255) ,  rgb(65, 134, 153) ,rgb(255, 255, 255));
+">
 <?php foreach($all_sanpham as $allsp) : ?>
     <a href="index.php?act=chitietsanpham&id_sanpham=<?= $allsp['id_sanpham'] ?>">
 
