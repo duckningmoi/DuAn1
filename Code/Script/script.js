@@ -10,11 +10,11 @@ function next(){
     if(index == hinhanhs.length){
         index = 0;
     }
-    document.getElementById('banner').src = hinhanhs[index]
+    document.getElementById('banner').src = hinhanhs[index];
 }
 
 function start(){
-    times = setInterval(next,2000)
+    times = setInterval(next,2000);
 }
 start();
 
