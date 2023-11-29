@@ -28,9 +28,19 @@
                     <img src="Images/phone-call.png" alt="" height="20px" width="20px">
                     <p>0353195203</p>
                 </a>
+                
                 <div class="div">
 
-                    <a href=""><img src="Images/search.png" alt="" width="25px" height="25px"></a>
+                    <a class="timkiem"><img src="Images/search.png" alt="" width="25px" height="25px">
+                    <div>
+            <form class="box_search" action="index.php?act=sanpham" method="POST">
+                <input type="text" id="" placeholder="Từ khóa tìm kiếm" name="keyword">
+                <button type="submit" name="timkiem"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+                    </a>
+                    
+                    
                     <?php if(isset($_SESSION['user'])){ ?>
                         <?php $avatar = select_tk_ez($_SESSION['user']) ?>
                         <a href="index.php?act=dangnhap"><img style="border-radius: 30%;" src="Images/<?= $avatar['avatar'] ?>" alt="" width="25px" height="25px"></a>
@@ -57,6 +67,7 @@
 
         </header>
         <nav>
+        
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li class="dropdown" >
@@ -70,10 +81,11 @@
                     <?php endforeach ?>  
                     </div>          
                 </li>
-                <li><a href="index/php?act=blog">Blog</a></li>
+                <li><a href="index.php?act=blog">Blog</a></li>
                 <li><a href="index.php?act=contact">Contact</a></li>
                 <li><a href="index.php?act=about">About</a></li>
                 <li><a href="https://web.facebook.com/?_rdc=1&_rdr">Vergency Group</a></li>
                 <li><a href="https://www.instagram.com/">Vergency Instagram</a></li>
             </ul>
+            
         </nav>

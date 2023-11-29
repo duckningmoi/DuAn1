@@ -1,4 +1,13 @@
 <?php
+function load_timkiem($kyw){
+    $sql="select * from sanpham where 1";
+    if($kyw!=""){
+        $sql.=" and title_sanpham like '%".$kyw."%' ";
+    }
+    $sql.=" order by title_sanpham";
+    $load_timkiem=pdo_query($sql);
+    return $load_timkiem;
+}
 function one_sanpham($id_sanpham){
     $sql = "select * from sanpham s inner join chitiet_sanpham c on (s.id_sanpham=c.id_sanpham) where s.id_sanpham=$id_sanpham";
     $one_sanpham = pdo_query_one($sql);
