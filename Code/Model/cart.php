@@ -28,7 +28,7 @@ function select_cart($id_giohang){
 }
 
 function select_soluong($id_giohang){
-    $sql = "SELECT p.title_sanpham , p.img_sanpham , s.gia_chitiet , s.id_chitietsanpham,s.size_chitiet ,COUNT(1) as count FROM chitiet_giohang g inner join chitiet_sanpham s on(g.id_chitietsanpham=s.id_chitietsanpham) inner join sanpham p on(s.id_sanpham=p.id_sanpham)
+    $sql = "SELECT p.title_sanpham , p.img_sanpham , s.gia_chitiet , s.id_chitietsanpham,s.size_chitiet ,COUNT(1) as count FROM chitiet_giohang g inner join chitiet_sanpham s on(g.id_chitietsanpham=s.id_chitietsanpham) inner join sanpham p on(s.id_sanpham=p.id_sanpham) 
     WHERE id_giohang=$id_giohang
     GROUP BY s.id_chitietsanpham ,s.size_chitiet
     HAVING COUNT(1) >= 1;";
@@ -56,6 +56,11 @@ function voucher($ma_voucher){
     $voucher = pdo_query($sql);
     return $voucher;
 }
+function voucher_vanchuyen($ma_voucher){
+    $sql = "SELECT * FROM voucher WHERE ma_voucher='$ma_voucher' ";
+    $voucher_vanchuyen = pdo_query_one($sql);
+    return $voucher_vanchuyen;
+}
 
 function hoantatdonhang($diachi_giaohang , $sdt_nguoinhan , $ten_nguoinhan  , $phuongthuc_thanhtoan , $tongtien , $id_user , $thoigiandathang){
     $sql = "INSERT INTO bill (`diachi_giaohang` , `sdt_nguoinhan` , `ten_nguoinhan` , `phuongthuc_thanhtoan` , `tongtien` , `id_user` , `thoigiandathang`) VALUES ('$diachi_giaohang' , '$sdt_nguoinhan' , '$ten_nguoinhan'  , '$phuongthuc_thanhtoan' , '$tongtien' , '$id_user' , '$thoigiandathang')";
@@ -73,6 +78,25 @@ function themchitiet_bill($soluong_chitiet , $size_chitiet , $gia_chitiet , $id_
 
 function xoatatcagiohang($id_giohang){
     $sql = "DELETE FROM chitiet_giohang WHERE id_giohang=$id_giohang";
+    pdo_execute($sql);
+}
+
+function select_bill_all(){
+    $sql = "SELECT * FROM bill b inner join chitiet_bill c on(b.id_bill=c.id_bill)
+    inner join chitiet_sanpham s on(c.id_chitietsanpham=s.id_chitietsanpham)
+    INNER join sanpham p on(s.id_sanpham=p.id_sanpham);";
+    $select_bill_all = pdo_query($sql);
+    return $select_bill_all;
+}
+
+function distinct_bill($id_user){
+    $sql = "SELECT DISTINCT id_bill, trangthai_bill , phuongthuc_thanhtoan , tongtien FROM bill WHERE id_user=$id_user";
+    $distinct_bill = pdo_query($sql);
+    return $distinct_bill;
+}
+
+function huydonhang($id_bill){
+    $sql = "DELETE FROM bill WHERE id_bill=$id_bill";
     pdo_execute($sql);
 }
 ?>

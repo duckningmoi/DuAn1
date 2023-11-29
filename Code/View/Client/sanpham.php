@@ -45,7 +45,7 @@
                                 <div class="money-del">420.000đ</div>
                             </div>
 
-                            <button>Xem chi tiết</button>
+                            <button class="btn_sanpham" >Xem chi tiết</button>
                         </div>
                     </a>
                 
@@ -80,5 +80,21 @@
 
     </div>
 
-
+    <button id="myBtn" title="Lên đầu trang"><img src='Images/backtotop.png' title='lên đầu trang' width='14px'/></button>
+<script>
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+ 
+if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+document.getElementById("myBtn").style.display = "block";
+} else {
+document.getElementById("myBtn").style.display = "none";
+}
+}
+ 
+document.getElementById('myBtn').addEventListener("click", function(){
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+});
+</script>
     </div>

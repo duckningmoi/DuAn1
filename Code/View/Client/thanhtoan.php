@@ -66,6 +66,7 @@
         <form action="" method="post">
             <?php
             if (isset($voucher)) { ?>
+            
                 <?= $voucher['ma_voucher'];  ?> <br>
                 <?= $voucher['description_voucher']; ?> <br>
                 <button class="red">
