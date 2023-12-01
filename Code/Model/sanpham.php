@@ -42,4 +42,12 @@ function sp_theoloai($id_danhmuc){
     $sp_theoloai = pdo_query($sql);
     return $sp_theoloai;
 }
+
+function sanphamlienquan($id_sanpham){
+    $sql = "SELECT id_danhmuc FROM sanpham WHERE id_sanpham=$id_sanpham";
+    $sanphamlienquan = pdo_query_one($sql);
+    return $sanphamlienquan;
+}
+
+
 ?>

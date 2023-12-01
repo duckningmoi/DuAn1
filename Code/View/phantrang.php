@@ -2,7 +2,7 @@
     .pagination {
         border: 1px solid black;
         margin-top: 10px;
-        margin-left: 650px;
+        margin-left: 44%;
         display: inline-block;
     }
 
@@ -25,7 +25,7 @@
         background-color: #00CCCC;
     }
 </style>
-
+<br> <br> <br> <br> <br>
 <div class="pagination">
     <?php
     if ($current_page > 1 && $total_page > 1) {
@@ -45,3 +45,4 @@
     }
     ?>
 </div>
+<br> <br> <br> <br> <br>

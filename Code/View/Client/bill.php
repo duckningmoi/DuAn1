@@ -1,7 +1,8 @@
 <br> <br> <br> <br> <br> <br>
 <?php if(isset($thongbao)) : ?>
     <script>alert("<?=$thongbao?>")</script>
-<?php endif ?>
+<?php endif ?> <br>
+<p id="efdg">ĐƠN HÀNG HIỆN CÓ: </p> <br>    
 <section class="theodoidonhang">
 
 
@@ -41,22 +42,7 @@
 
 
 
-    <div class="theodoidonhang2"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </section>
+<br> <br> <br> <br> <br> <br>

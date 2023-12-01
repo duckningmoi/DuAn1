@@ -114,3 +114,31 @@ document.documentElement.scrollTop = 0;
 </script>
 </main>
 <?php include "View/phantrang.php" ?>
+
+<div class="vach1">
+        <div class="vach11"></div>
+        <div class="vach11"></div>
+    </div>
+<h1 class="h1">DANH MỤC YÊU THÍCH</h1>
+<p class="h1">Danh mục được nhiều khách hàng yêu thích</p>
+
+
+<div class="danhmucyeuthich">
+    
+<?php foreach($all_danhmuc as $dm) :  ?>
+    <a href="index.php?act=sanpham&iddm=<?= $dm['id_danhmuc'] ?>">
+    <img src="Images/<?= $dm['img_danhmuc'] ?>" alt="" width="400px">
+
+
+    </a>
+<?php endforeach ?>
+</div> <br> <br>
+<div class="vach1">
+        <div class="vach11"></div>
+        <div class="vach11"></div>
+    </div>
+
+<br> <br> <br> <br>
+
+
+

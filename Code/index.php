@@ -18,6 +18,21 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             $binhluan_one_sp = binhluan_one_sp($_GET['id_sanpham']);
             $id_sanpham = $_GET['id_sanpham'];
+            $sanphamlienquan = sanphamlienquan($id_sanpham);
+            //sp lq
+            if(isset($_POST['keyword']) &&  $_POST['keyword'] != 0 ){
+                $kyw = $_POST['keyword'];
+                $all_sanpham = load_timkiem($kyw);
+                $iddm = "";
+            }else{
+                $iddm = $sanphamlienquan['id_danhmuc'];
+
+                $all_sanpham = all_sanpham();
+                
+            }
+            
+            
+            //end
             if ((isset($_POST['M']))) {
                 $size = $_POST['M'];
                 $chitiet_sanpham = chitiet_sanpham($size, $id_sanpham);
@@ -49,8 +64,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $sl_1_loai = sl_1_loai($id_sanpham);
                 include "View/Client/chitietsanpham.php";
             }
+            
 
 
+            
             break;
         case "addbl":
             $id_user = select_tk_ez($_SESSION['user']);
@@ -196,6 +213,16 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 die;
             }
             dangxuat();
+            if (empty($_GET['page'])) {
+                $_GET['page'] = 1;
+            }
+            $all_danhmuc = all_danhmuc();
+            $total_record = total_record();
+            $batdau = ($_GET['page'] - 1) * 8;
+            $all_sanpham = all_sanpham_home($batdau);
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $limit = 8;
+            $total_page = ceil($total_record['count'] / $limit);
             include "View/Client/home.php";
 
             break;
@@ -303,6 +330,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
 
         case "bill":
+            if (empty($_SESSION['user'])) {
+                header("location: index.php?act=dangnhap");
+                die;
+            }
             $id_user = select_tk_ez($_SESSION['user']);
             $id_giohang = giohang_user($_SESSION['user']);
             $sl = select_soluong($id_giohang['id_giohang']);
@@ -328,6 +359,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
     if (empty($_GET['page'])) {
         $_GET['page'] = 1;
     }
+    $all_danhmuc = all_danhmuc();
     $total_record = total_record();
     $batdau = ($_GET['page'] - 1) * 8;
     $all_sanpham = all_sanpham_home($batdau);
