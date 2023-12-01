@@ -129,6 +129,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "View/Client/sanpham.php";
             break;
 
+        case "slide404":
+            include "View/Client/slide404.php";
+            break;
+
         case "dangky":
             if (isset($_POST['dangky']) && $_POST['dangky']) {
                 $tentaikhoan_user = $_POST['user'];
@@ -159,6 +163,10 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
 
         case "dangnhap":
+            if(isset($_SESSION['usser'])){
+                header("location: index.php?act=tttk");
+                die;
+            }
             if (isset($_POST['dangnhap'])) {
                 $loginMess = dangnhap($_POST['user'], $_POST['pass']);
                 $role = queryrole($_POST['user'], $_POST['pass']);
@@ -213,6 +221,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 die;
             }
             dangxuat();
+            include "View/Client/login/dangnhap.php";
             if (empty($_GET['page'])) {
                 $_GET['page'] = 1;
             }
@@ -240,6 +249,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
 
         case "cart":
+            $all_voucher = all_voucher();
             if (empty($_SESSION['user'])) {
                 header("location: index.php?act=dangnhap");
                 die;
@@ -268,7 +278,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             include "View/Client/cart.php";
             break;
 
-
+            case "test":
+                include "View/Client/test.php";
+                break;
 
             // code quan
         case "blog":
@@ -354,18 +366,21 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $distinct_bill = distinct_bill($id_user['id_user']);
             include "View/Client/bill.php";
             break;
+            case "home":
+                if (empty($_GET['page'])) {
+                    $_GET['page'] = 1;
+                }
+                $all_danhmuc = all_danhmuc();
+                $total_record = total_record();
+                $batdau = ($_GET['page'] - 1) * 8;
+                $all_sanpham = all_sanpham_home($batdau);
+                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $limit = 8;
+                $total_page = ceil($total_record['count'] / $limit);
+                include "View/Client/home.php";
+                break;
     }
 } else {
-    if (empty($_GET['page'])) {
-        $_GET['page'] = 1;
-    }
-    $all_danhmuc = all_danhmuc();
-    $total_record = total_record();
-    $batdau = ($_GET['page'] - 1) * 8;
-    $all_sanpham = all_sanpham_home($batdau);
-    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $limit = 8;
-    $total_page = ceil($total_record['count'] / $limit);
-    include "View/Client/home.php";
+    include "View/Client/slide404.php";
 }
 include "View/Client/footer.php";

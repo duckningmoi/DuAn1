@@ -1,4 +1,11 @@
 
+
+
+
+
+
+
+
 /* CSS HOME */
 * {box-sizing:border-box}
 
@@ -190,8 +197,13 @@ a:hover{
 }
 /* MENU */
 
-
+.btn_timkiem{
+    margin-left: 110px;
+    width: 40px;
+    border-radius: 10px;
+}
 .timkiem{
+    height: 30px;
     position: relative;
     left: 400px;
 }
@@ -600,8 +612,24 @@ margin-left: 130px;
 .formedittttk {
     text-align: left;
 }
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
 /* CSS CART */
+.name_voucher_view{
+    font-size: 22px;
+}
 
+.voucher_view{
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 70px;
+    margin-left: 320px;
+    margin-bottom: 100px;
+}
+.voucher_view img{
+    position: relative;
+    top: 10px;
+}
 .formcart {
     position: relative;background: #fff;display: flex;justify-content: center;
     align-items: center;border: 1px solid #000;color: #000;

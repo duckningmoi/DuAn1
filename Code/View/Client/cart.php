@@ -59,3 +59,5 @@ if (isset($thongbao)) { ?>
 
 
 </section>
+
+<?php include "View/Client/voucher.php" ?>
