@@ -6,7 +6,7 @@
     <script>alert('<?= $alert ?>')</script>
 <?php endif ?>
 <?php endif ?>
-<hr> <br> <br> <br>
+<br> <br> <br>
 <section class="ctsp">
     <div><img  class="image" src="Images/sp/<?= $one_sanpham['img_sanpham'] ?>" alt="" width="400px"></div>
     <div class="thongtin">
@@ -78,6 +78,8 @@
 <?php } ?>
             </div>
 <br> <br> <br> <br>
+
+<?php include "View/Client/sanphamlienquan.php"; ?>
 
 <br>
 <br>

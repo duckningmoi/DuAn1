@@ -1,21 +1,6 @@
-<br> <br>
-
-<section class="all_sp">
-    <div class="left">
-        <br>
-        Danh Mục Nhóm
-        <hr>
-        <ul>
-            <li><a class="link_menu" href="index.php?act=sanpham&iddm= ">Tất Cả</a></li>
-            <?php foreach ($all_danhmuc as $danhmuc) : ?>
-                <li> <a class="link_menu" href="index.php?act=sanpham&iddm=<?= $danhmuc['id_danhmuc'] ?>"><?= $danhmuc['ten_danhmuc'] ?></a> </li>
-            <?php endforeach ?>
-        </ul>
-    </div>
-    <div class="div"></div>
-    <div class="right">
-        
-        <div class="all">
+<div class="sanphamlienquan">
+<p class="sanphamlienquan_name"> SẢN PHẨM LIÊN QUAN</p>
+<div id="app" class="all">
         <?php foreach ($all_sanpham as $allsp) : ?>
         <?php if ($allsp['id_danhmuc'] == $iddm) { ?>
             
@@ -35,7 +20,6 @@
                                 <div class="money-del">420.000đ</div>
                             </div>
 
-                            <button class="" >Xem chi tiết</button>
                         </div>
                     </a>
                 
@@ -56,8 +40,6 @@
                             <div class="giatien">
                                 <div class="money-del">420.000đ</div>
                             </div>
-
-                            <button>Xem chi tiết</button>
                         </div>
                     </a>
                 
@@ -66,25 +48,34 @@
 
 
         </div>
+        </div>
+<style>
+    .sanphamlienquan_name{
+        font-size: 25px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .sp img{
+        width: 190px;
+    }
+    .sp{
+        font-size: 15px;
+        height: 320px;
+        width: 200px;
+
+    }
+    .all{
+        display: flex;
+        overflow-x: auto;
+        
+    }
+    .all::-webkit-scrollbar {
+    background-color: white;
+    
+    }
+
+</style>
+            
 
 
-    </div>
-    </div>  
-
-    <button id="myBtn" title="Lên đầu trang"><img src='Images/backtotop.png' title='lên đầu trang' width='14px'/></button>
-<script>
-window.onscroll = function() {scrollFunction()};
-function scrollFunction() {
- 
-if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-document.getElementById("myBtn").style.display = "block";
-} else {
-document.getElementById("myBtn").style.display = "none";
-}
-}
- 
-document.getElementById('myBtn').addEventListener("click", function(){
-document.body.scrollTop = 0;
-document.documentElement.scrollTop = 0;
-});
-</script>
+            

@@ -1,6 +1,10 @@
 <?php
-if(isset($_SESSION['user'])){
+if(isset($_SESSION['usser'])){
     header("location: index.php?act=tttk");
+    die;
+}
+else{
+    header("location: index.php?act=dangnhap");
 }
 ?>
 <hr><br><br>

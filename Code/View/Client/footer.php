@@ -1,10 +1,11 @@
 <footer>
-    <hr>
-    <hr>
-<p>VERGENCY</p>
-Thương hiệu nổi bật của chúng tôi
-<hr>
-<hr>
+<br> 
+<h1 class="h1">VERGENCY</h1>
+<p class="h1">Thương Hiệu Nổi Bật Của Chúng Tôi</p>
+<div class="vach2">
+        <div class="vach"></div>
+        <div class="vach"></div>
+</div>
 
 <div class="footer">
     <div class="div">

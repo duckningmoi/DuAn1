@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../Code/View/Client/Css/style.css">
 <div class="contact-page">
     <H1>Liên hệ</H1>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8353521256154!2d105.72923707500071!3d21.03927298741787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345550b525aa03%3A0x3fdefc40f69a023a!2zQ2FvIMSR4bqzbmcgRlBUIFBo4buRIFRy4buLbmggVsSDbiBCw7QgLCBQaMaw4budbmcgUGjGsMahbmcgQ2FuaCAsIHF14bqtbiBU4burIExpw6pt!5e0!3m2!1svi!2s!4v1700745691321!5m2!1svi!2s" width="1000" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -12,15 +11,15 @@
                 <div class="clearfix">
                     <div class="contact-item">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <i class="fa fa-user"></i>
                             <input type="text" name="contact[name]" class="form-control" placeholder="Họ và tên" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                            <i class="fa fa-envelope-o"></i>
                             <input type="text" name="contact[email]" class="form-control" placeholder="Email đầy đủ" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <i class="fa fa-phone"></i>
                             <input type="text" name="contact[phone]" class="form-control" placeholder="Số điện thoại" aria-describedby="basic-addon1">
                         </div>
                     </div>
