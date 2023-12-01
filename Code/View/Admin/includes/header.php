@@ -72,6 +72,8 @@
             </ul>
         </div>
         <div class="navbar-end">
-            <a class="btn" href="../../../../../../../GitHub/DuAn1/DuAn1/Code/index.php">Retunr Website</a>
+            <?php { ?>
+            <a class="btn" href="../../../../../../../GitHub/DuAn1/DuAn1/Code/index.php?act=home">Retunr Website</a>
+       <?php } ?>
         </div>
     </div>

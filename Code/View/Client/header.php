@@ -20,7 +20,7 @@
     <div class="container">
         <header>
             <div class="logo">
-                <a href="index.php">
+                <a href="index.php?act=home">
                     <img src="Images/logo.webp" alt="" height="96px" width="390px">
                 </a>
             </div>
@@ -36,7 +36,7 @@
                     <div>
             <form class="box_search" action="index.php?act=sanpham" method="POST">
                 <input type="text" id="" placeholder="Từ khóa tìm kiếm" name="keyword">
-                <button type="submit" name="timkiem"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button  class="btn_timkiem" type="submit" name="timkiem"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
                     </a>
@@ -70,7 +70,7 @@
         <nav>
         
             <ul>
-                <li><a class="link_menu" href="index.php">Home</a></li>
+                <li><a class="link_menu" href="index.php?act=home">Home</a></li>
                 <li class="dropdown" >
                 <a class="link_menu" href="index.php?act=sanpham&iddm=" class="dropbtn" >Shop</a>
                 <div class="dropdown-content">

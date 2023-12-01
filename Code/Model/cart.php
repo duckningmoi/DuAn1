@@ -61,7 +61,11 @@ function voucher_vanchuyen($ma_voucher){
     $voucher_vanchuyen = pdo_query_one($sql);
     return $voucher_vanchuyen;
 }
-
+function all_voucher(){
+    $sql = "SELECT * FROM voucher";
+    $all_voucher = pdo_query($sql);
+    return $all_voucher;
+}
 function hoantatdonhang($diachi_giaohang , $sdt_nguoinhan , $ten_nguoinhan  , $phuongthuc_thanhtoan , $tongtien , $id_user , $thoigiandathang){
     $sql = "INSERT INTO bill (`diachi_giaohang` , `sdt_nguoinhan` , `ten_nguoinhan` , `phuongthuc_thanhtoan` , `tongtien` , `id_user` , `thoigiandathang`) VALUES ('$diachi_giaohang' , '$sdt_nguoinhan' , '$ten_nguoinhan'  , '$phuongthuc_thanhtoan' , '$tongtien' , '$id_user' , '$thoigiandathang')";
     pdo_execute($sql);

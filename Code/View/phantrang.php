@@ -19,6 +19,11 @@
         color: white;
         border-radius: 5px;
     }
+    .pagination a :focus {
+        background-color: #00FFFF;
+        color: white;
+        border-radius: 5px;
+    }
 
 
     .pagination a:hover {

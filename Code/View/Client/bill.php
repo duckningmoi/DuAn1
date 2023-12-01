@@ -2,7 +2,7 @@
 <?php if(isset($thongbao)) : ?>
     <script>alert("<?=$thongbao?>")</script>
 <?php endif ?> <br>
-<p id="efdg">ĐƠN HÀNG HIỆN CÓ: </p> <br>    
+<p id="efdg">ĐƠN HÀNG HIỆN CÓ: </p> <br> 
 <section class="theodoidonhang">
 
 
@@ -13,6 +13,7 @@
                     if ($bill_all['id_bill'] == $distinct['id_bill']) {
                         echo "<img src='Images/sp/" . $bill_all['img_sanpham'] . "' width='80px'> <br> "; 
                         echo $bill_all['title_sanpham'],"<br>";
+                        echo $distinct['trangthai_bill'];
                         echo '<div class="vachkemau"></div>';
                     }
 
