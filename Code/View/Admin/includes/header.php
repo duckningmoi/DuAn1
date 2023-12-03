@@ -42,6 +42,7 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="index.php">Home</a></li>
+                <li><a href="category.php">Category</a></li>
                 <li tabindex="0">
                     <details>
                         <summary>Products</summary>
@@ -70,6 +71,8 @@
                     </details>
                 </li>
             </ul>
+            
+
         </div>
         <div class="navbar-end">
             <?php { ?>

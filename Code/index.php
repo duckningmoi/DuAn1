@@ -379,6 +379,9 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $total_page = ceil($total_record['count'] / $limit);
                 include "View/Client/home.php";
                 break;
+            case "slide_banner":
+                
+                break;
     }
 } else {
     include "View/Client/slide404.php";

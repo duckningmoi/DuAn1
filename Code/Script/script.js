@@ -19,7 +19,7 @@ function next(){
 }
 
 function start(){
-    times = setInterval(next,2000);
+    times = setInterval(next,2300);
 }
 start();
 

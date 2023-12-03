@@ -1,6 +1,6 @@
 <?php require_once "./includes/header.php"; ?>
 <!-- component -->
-<form class="relative flex min-h-screen text-gray-800 antialiased flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12" action="./controllers/insertController.php" method="post" enctype="multipart/form-data">
+<form class="flex min-h-screen text-gray-800 antialiased flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12" action="./controllers/insertController.php" method="post" enctype="multipart/form-data">
     <div class="relative py-3 sm:w-96 mx-auto text-center">
         <span class="text-2xl font-light ">CREATE USER</span>
         <div class="mt-4 bg-white shadow-md rounded-lg text-left">
