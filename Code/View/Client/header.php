@@ -20,7 +20,7 @@
     <div class="container">
         <header>
             <div class="logo">
-                <a href="index.php?act=home">
+                <a href="index.php">
                     <img src="Images/logo.webp" alt="" height="96px" width="390px">
                 </a>
             </div>
@@ -70,7 +70,7 @@
         <nav>
         
             <ul>
-                <li><a class="link_menu" href="index.php?act=home">Home</a></li>
+                <li><a class="link_menu" href="index.php">Home</a></li>
                 <li class="dropdown" >
                 <a class="link_menu" href="index.php?act=sanpham&iddm=" class="dropbtn" >Shop</a>
                 <div class="dropdown-content">

@@ -56,5 +56,33 @@ function check_taikhoan(){
     $check_taikhoan = pdo_query($sql);
     return $check_taikhoan;
 }
+function one_user($id_user){
+    $sql = "SELECT * FROM user WHERE id_user=$id_user";
+    $one_user = pdo_query_one($sql);
+    return $one_user;
+}
+function all_user(){
+    $sql = "SELECT * FROM user";
+    $all_user = pdo_query($sql);
+    return $all_user;
+}
+function insert_user_admin($ten_user , $sdt_user,  $diachi_user ,$gmail_user ,$tentaikhoan_user, $password_user, $role, $avatar){
+    $sql = "insert into user (ten_user , sdt_user , diachi_user , gmail_user , tentaikhoan_user , password_user , role , avatar) value ('$ten_user' , '$sdt_user',  '$diachi_user' ,'$gmail_user' ,'$tentaikhoan_user', '$password_user', '$role', '$avatar')";
+    pdo_execute($sql);
+}
 
+function edittk_admin($id_user , $ten_user , $sdt_user , $diachi_user , $gmail_user , $password_user , $avatar, $role , $tentaikhoan_user){
+    $sql = "UPDATE user SET ten_user='$ten_user' , sdt_user='$sdt_user' , diachi_user='$diachi_user' , gmail_user='$gmail_user' , password_user='$password_user', role='$role' , avatar='$avatar' WHERE id_user='$id_user'";
+    pdo_execute($sql);
+}
+
+function delete_user($id_user){
+    $sql = "DELETE FROM user WHERE id_user=$id_user";
+    pdo_execute($sql);
+}
+function delete_giohangcunguser($id_user){
+    $sql = "DELETE FROM giohang WHERE id_user=$id_user";
+    pdo_execute($sql);
+
+}
 ?>
