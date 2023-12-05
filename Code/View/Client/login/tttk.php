@@ -55,9 +55,9 @@ if(empty($_SESSION['user'])){
             <?= $tkez['tentaikhoan_user'] ?>
             </div>
     <br> <br>
-                <a href="index.php?act=edittttk">Sửa Tài Khoản</a>
+                <a href="index.php?act=edittttk">Sửa Tài Khoản</a> <br>
                 <?php if(isset($_SESSION['admin'])){ ?>
-                    <a href="../../../../../../../GitHub/DuAn1/DuAn1/Code/View/Admin/index.php">Đăng nhập Admin</a>
+                    <a href="../../../../../../../GitHub/DuAn1/DuAn1/Code/View/Adminn/index.php">Đăng nhập Admin</a>
                <?php }?>
                <button type="submit" value="dangxuat"> <a href="index.php?act=dangxuat"> Đăng Xuất </a></button>
         </form>

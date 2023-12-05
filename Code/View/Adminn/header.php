@@ -42,13 +42,22 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="category.php">Category</a></li>
+                <li tabindex="0">
+                    <details>
+                        <summary>Category</summary>
+                        <ul class="p-2">
+                            <li><a href="index.php?act=adddm">Create</a></li>
+                            <li><a href="index.php?act=listdm">Table</a></li>
+                        </ul>
+                    </details>
+                </li>
+                
                 <li tabindex="0">
                     <details>
                         <summary>Products</summary>
                         <ul class="p-2">
-                            <li><a href="createProduct.php">Create</a></li>
-                            <li><a href="products.php">Table</a></li>
+                            <li><a href="index.php?act=addsp">Create</a></li>
+                            <li><a href="index.php?act=listsp">Table</a></li>
                         </ul>
                     </details>
                 </li>
@@ -56,8 +65,8 @@
                     <details>
                         <summary>Users</summary>
                         <ul class="p-2">
-                            <li><a href="createUser.php">Create</a></li>
-                            <li><a href="users.php">Table</a></li>
+                            <li><a href="index.php?act=adduser">Create</a></li>
+                            <li><a href="index.php?act=listuser">Table</a></li>
                         </ul>
                     </details>
                 </li>
@@ -65,8 +74,16 @@
                     <details>
                         <summary>Comment</summary>
                         <ul class="p-2">
-                            <li><a href="createComment.php">Create</a></li>
-                            <li><a href="comment.php">Table</a></li>
+                            <li><a href="index.php?act=listcm">Table</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li tabindex="0">
+                    <details>
+                        <summary>Order</summary>
+                        <ul class="p-2">
+                            <li><a href="index.php?act=addbill">Create</a></li>
+                            <li><a href="index.php?act=listbill">Table</a></li>
                         </ul>
                     </details>
                 </li>
@@ -76,7 +93,7 @@
         </div>
         <div class="navbar-end">
             <?php { ?>
-            <a class="btn" href="../../../../../../../GitHub/DuAn1/DuAn1/Code/index.php?act=home">Retunr Website</a>
+            <a class="btn" href="../../../../../../../GitHub/DuAn1/DuAn1/Code/index.php">Retunr Website</a>
        <?php } ?>
         </div>
     </div>

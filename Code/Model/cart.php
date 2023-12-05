@@ -103,4 +103,21 @@ function huydonhang($id_bill){
     $sql = "DELETE FROM bill WHERE id_bill=$id_bill";
     pdo_execute($sql);
 }
+function bill_admin(){
+    $sql = "SELECT * FROM bill";
+    $bill_admin = pdo_query($sql);
+    return $bill_admin;
+}
+function edit_bill($id_bill){
+    $sql = "SELECT * FROM bill WHERE id_bill=$id_bill";
+    $edit_bill = pdo_query_one($sql);
+    return $edit_bill;
+}
+
+function editbill($id_bill, $diachi_giaohang , $sdt_nguoinhan , $ten_nguoinhan , $phuongthuc_thanhtoan , $tongtien , $trangthai_bill){
+    $sql = "UPDATE bill SET diachi_giaohang='$diachi_giaohang' , sdt_nguoinhan='$sdt_nguoinhan' , ten_nguoinhan='$ten_nguoinhan' , phuongthuc_thanhtoan='$phuongthuc_thanhtoan' , tongtien='$tongtien' , trangthai_bill='$trangthai_bill' WHERE id_bill='$id_bill'";
+    pdo_execute($sql);
+    
+}
+
 ?>

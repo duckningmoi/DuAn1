@@ -241,6 +241,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 header("location: index.php?act=dangnhap");
                 die;
             }
+            $all_voucher = all_voucher();
             $id_giohang = giohang_user($_SESSION['user']);
             addcarrt($_GET['id_sanpham'], $id_giohang['id_giohang']);
             $thongbao = "Đã Thêm Vào Giỏ Hàng";
@@ -366,21 +367,19 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $distinct_bill = distinct_bill($id_user['id_user']);
             include "View/Client/bill.php";
             break;
-            case "home":
-                if (empty($_GET['page'])) {
-                    $_GET['page'] = 1;
-                }
-                $all_danhmuc = all_danhmuc();
-                $total_record = total_record();
-                $batdau = ($_GET['page'] - 1) * 8;
-                $all_sanpham = all_sanpham_home($batdau);
-                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-                $limit = 8;
-                $total_page = ceil($total_record['count'] / $limit);
-                include "View/Client/home.php";
-                break;
+            
     }
 } else {
-    include "View/Client/slide404.php";
+    if (empty($_GET['page'])) {
+        $_GET['page'] = 1;
+    }
+    $all_danhmuc = all_danhmuc();
+    $total_record = total_record();
+    $batdau = ($_GET['page'] - 1) * 8;
+    $all_sanpham = all_sanpham_home($batdau);
+    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $limit = 8;
+    $total_page = ceil($total_record['count'] / $limit);
+    include "View/Client/home.php";
 }
 include "View/Client/footer.php";

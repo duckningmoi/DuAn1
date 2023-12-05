@@ -48,6 +48,51 @@ function sanphamlienquan($id_sanpham){
     $sanphamlienquan = pdo_query_one($sql);
     return $sanphamlienquan;
 }
+// ADMIN
+function add_sanpham($title_sanpham , $img_sanpham , $description_sanpham , $id_danhmuc){
+    $sql = "INSERT INTO sanpham (`title_sanpham` , `img_sanpham` , `description_sanpham` , `id_danhmuc`) VALUE ('$title_sanpham' , '$img_sanpham' , '$description_sanpham' , '$id_danhmuc')";
+    pdo_execute($sql);
+}
+function all_sanphamadmin(){
+    $sql = "SELECT * FROM sanpham";
+    $all_sanpham_admin = pdo_query($sql);
+    return $all_sanpham_admin;
+}
+function one_sanphamadmin($id_sanpham){
+    $sql = "select * from sanpham where id_sanpham=$id_sanpham";
+    $one_sanphamadmin = pdo_query_one($sql);
+    return $one_sanphamadmin;
+}
+function update_sanpham($id_sanpham , $title_sanpham , $img_sanpham , $description_sanpham , $id_danhmuc){
+    $sql = "UPDATE sanpham SET title_sanpham='$title_sanpham' , img_sanpham='$img_sanpham' , description_sanpham='$description_sanpham' , id_danhmuc='$id_danhmuc' WHERE id_sanpham=$id_sanpham";
+    pdo_execute($sql);
 
-
+}
+function delete_sanpham($id_sanpham){
+    $sql = "DELETE FROM sanpham WHERE id_sanpham=$id_sanpham";
+    pdo_execute($sql);
+    
+}
+function all_ctsp() {
+    $sql = "SELECT * FROM chitiet_sanpham c INNER JOIN  sanpham s ON(c.id_sanpham=s.id_sanpham) ORDER BY s.id_sanpham";
+    $all_ctsp = pdo_query($sql);
+    return $all_ctsp;
+}
+function addctsp($soluongtonkho, $soluongdaban , $size_chitiet, $gia_chitiet , $id_sanpham){
+    $sql = "INSERT INTO chitiet_sanpham (`soluongtonkho`, `soluongdaban` , `size_chitiet`, `gia_chitiet` , `id_sanpham`) VaLUES('$soluongtonkho', '$soluongdaban' , '$size_chitiet', '$gia_chitiet' , '$id_sanpham')";
+    pdo_execute($sql);   
+}
+function one_ctsp($id){
+    $sql = "SELECT * FROM chitiet_sanpham WHERE id_chitietsanpham=$id";
+    $one_ctsp = pdo_query_one($sql);
+    return $one_ctsp;
+}
+function edit_ctsp($soluongtonkho, $soluongdaban , $size_chitiet, $gia_chitiet , $id_sanpham ,$id_chitietsanpham){
+    $sql = "UPDATE chitiet_sanpham SET soluongtonkho='$soluongtonkho' , soluongdaban='$soluongdaban' , size_chitiet='$size_chitiet', gia_chitiet='$gia_chitiet' , id_sanpham='$id_sanpham' WHERE id_chitietsanpham=$id_chitietsanpham";
+    pdo_execute($sql);
+}
+function delete_ctsp($id_chitietsanpham){
+    $sql = "DELETE FROM chitiet_sanpham WHERE id_chitietsanpham=$id_chitietsanpham";
+    pdo_execute($sql);
+}
 ?>
