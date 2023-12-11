@@ -11,7 +11,6 @@
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Địa Chỉ Giao</th>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Trạng Thái Đơn</th>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Tổng Tiền</th>
-                <th scope="col" class="px-6 py-4 font-medium text-gray-900">Ngày Đặt Hàng</th>
                 <th scope="col" class="px-6 py-4 font-medium text-gray-900">Action</th>
             </tr>
         </thead>
@@ -37,13 +36,10 @@
                     <td class="px-6 py-4">
                         <?= $bill['tongtien'] ?>
                     </td>
-                    <td class="px-6 py-4">
-                        <?= $bill['thoigiandathang'] ?>
-                    </td>
+
                     <td class="px-6 py-4">
                         <div class="flex gap-4">
                             <a href="index.php?act=editbill&&id=<?=  $bill['id_bill'] ?>" class="btn btn-success ">Update</a>
-                            <a onclick="return confirm('Bạn muốn xóa đơn hàng này?')" href="index.php?act=delbill&&id=<?=  $bill['id_bill'] ?>" class="btn btn-error">Delete</a>
                         </div>
                     </td>
                 </tr>

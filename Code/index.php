@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include "Model/pdo.php";
 include "Model/sanpham.php";
@@ -70,15 +71,17 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             
             break;
         case "addbl":
+            if(isset($_POST['guibinhluan'])){
             $id_user = select_tk_ez($_SESSION['user']);
             $id_sanpham = $_GET['id_sanpham'];
             $noidung_binhluan = $_POST['noidung_binhluan'];
             insert_binhluan($id_sanpham, $noidung_binhluan, $id_user['id_user']);
-
+            }
 
 
             $id_user = select_tk_ez($_SESSION['user']);
             $binhluan_one_sp = binhluan_one_sp($_GET['id_sanpham']);
+            
             $id_sanpham = $_GET['id_sanpham'];
             if ((isset($_POST['M']))) {
                 $size = $_POST['M'];
@@ -190,6 +193,14 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $tkez = select_tk_ez($_SESSION['user']);
             include "View/Client/login/tttk.php";
             break;
+        
+        case "quenmk":
+                if (isset($_POST['quenmk'])) {
+                    $email = $_POST['email'];
+                    $sendMailMess = sendMail($email);
+                }
+                include "View/Client/login/quenmk.php";
+            break;
         case "edittttk":
             $tkez = select_tk_ez($_SESSION['user']);
             if (isset($_POST['edittttk']) && ($_POST['edittttk'])) {
@@ -222,20 +233,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             }
             dangxuat();
             include "View/Client/login/dangnhap.php";
-            if (empty($_GET['page'])) {
-                $_GET['page'] = 1;
-            }
-            $all_danhmuc = all_danhmuc();
-            $total_record = total_record();
-            $batdau = ($_GET['page'] - 1) * 8;
-            $all_sanpham = all_sanpham_home($batdau);
-            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-            $limit = 8;
-            $total_page = ceil($total_record['count'] / $limit);
-            include "View/Client/home.php";
-
-            break;
-
+            
         case "addcart":
             if (empty($_SESSION['user'])) {
                 header("location: index.php?act=dangnhap");
@@ -329,7 +327,8 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $tongtien = $_POST['tongtien'];
                 $id_user = $tkez['id_user'];
                 $thoigiandathang = $_POST['thoigiandathang'];
-                $thongbao = "Đặt hàng thành công";
+                $madonvan = madonvan();
+                $thongbao = "Đặt hàng thành công, Mã Đơn: ".$madonvan['madon'] + 1 ;
                 hoantatdonhang($diachi_giaohang, $sdt_nguoinhan, $ten_nguoinhan, $phuongthuc_thanhtoan, $tongtien, $id_user, $thoigiandathang);
                 $sl = select_soluong($id_giohang['id_giohang']);
                 foreach ($sl as $s) {
@@ -338,6 +337,14 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                     themchitiet_bill($s['count'], $s['size_chitiet'], $s['gia_chitiet'], $id_bill['id_bill'], $s['id_chitietsanpham']);
                 }
                 xoatatcagiohang($id_giohang['id_giohang']);
+                $id_user = select_tk_ez($_SESSION['user']);
+            $id_giohang = giohang_user($_SESSION['user']);
+            $sl = select_soluong($id_giohang['id_giohang']);
+            $select_bill_all = select_bill_all();
+            $distinct_bill = distinct_bill($id_user['id_user']);
+            include "View/Client/bill.php";
+            include "View/Client/footer.php";
+                die;
             }
             include "View/Client/thanhtoan.php";
             break;
@@ -347,11 +354,29 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 header("location: index.php?act=dangnhap");
                 die;
             }
-            $id_user = select_tk_ez($_SESSION['user']);
-            $id_giohang = giohang_user($_SESSION['user']);
-            $sl = select_soluong($id_giohang['id_giohang']);
-            $select_bill_all = select_bill_all();
-            $distinct_bill = distinct_bill($id_user['id_user']);
+            if(isset($_POST['keyword']) &&  $_POST['keyword'] != 0 ){
+                $kyw = $_POST['keyword'];
+                $id_user = select_tk_ez($_SESSION['user']);
+                $id_giohang = giohang_user($_SESSION['user']);
+                $sl = select_soluong($id_giohang['id_giohang']);
+                $select_bill_all = select_bill_all();
+                if($kyw == "all"){
+                    $distinct_bill = distinct_bill($id_user['id_user']);
+                }
+                else{
+                    $distinct_bill = select_tkbill($kyw);
+                }
+
+            }else{
+
+                $id_user = select_tk_ez($_SESSION['user']);
+                $id_giohang = giohang_user($_SESSION['user']);
+                $sl = select_soluong($id_giohang['id_giohang']);
+                $select_bill_all = select_bill_all();
+                $distinct_bill = distinct_bill($id_user['id_user']);
+            }
+
+
             include "View/Client/bill.php";
             break;
         case "huydonhang":
@@ -383,3 +408,4 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
     include "View/Client/home.php";
 }
 include "View/Client/footer.php";
+ob_end_flush();

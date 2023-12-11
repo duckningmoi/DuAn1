@@ -1,4 +1,5 @@
-<?php if(isset($thongbao)) : ?>
+<?php
+ if(isset($thongbao)) : ?>
     <script>
         alert("<?= $thongbao ?>")
     </script>
@@ -136,9 +137,11 @@
                     Trường hợp đặt hàng xong nhưng muốn HỦY ĐƠN, <br>vui lòng soạn tin nhắn theo cú pháp: SĐT ĐÃ ĐẶT ĐƠN (hoặc MÃ ĐƠN hoặc GMAIL ĐƠN HÀNG) + TÊN NGƯỜI NHẬN <br> sau đó gửi qua các kênh online: Page Facebook, Intagram. Nhân viên check tin nhắn sẽ xử lý hủy giúp Quý KH.</p>
             </div>
             <input type="hidden" name="tongtien" value="<?= $sum + $phivanchuyen ?>">
-            <input type="time" name="thoigiandathang" id="" value="<?= date('H:i:s') ?>">
-            <input type="submit" name="hoantatdonhang" class="hoantatdonhang" value="Hoàn Tất Đơn Hàng">
+            <input type="hidden" name="thoigiandathang" id="" value="<?= date('H:i:s') ?>">
+            <?php if(isset($sum) && $sum != 0) { ?>
 
+            <input type="submit" name="hoantatdonhang" class="hoantatdonhang" value="Hoàn Tất Đơn Hàng">
+<?php } ?>
         </form>
     </div>
 

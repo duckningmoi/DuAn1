@@ -2,7 +2,7 @@
 <?php if(isset($thongbao)) { ?>
 <script> alert("<?= $thongbao ?>") </script>
     <?php } ?>
-<form class="flex min-h-screen text-gray-800 antialiased flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12" action="" method="post" enctype="multipart/form-data">
+<form class="flex min-h-screen text-gray-800 antialiased flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12" name="myForm" onsubmit = "return(validate());" action="" method="post" enctype="multipart/form-data">
     <div class="relative py-3 sm:w-96 mx-auto text-center">
         <span class="text-2xl font-light ">CREATE USER</span>
         <div class="mt-4 bg-white shadow-md rounded-lg text-left">
@@ -30,3 +30,54 @@
         </div>
     </div>
 </form>
+<script>
+        function validate() {
+      
+      if( document.myForm.ten_user.value == "" ) {
+         alert( "Vui lòng nhập Tên Người Dùng" );
+         document.myForm.ten_user.focus() ;
+         return false;
+      }
+      if( document.myForm.sdt_user.value == "" ) {
+         alert( "Vui lòng nhập SĐT" );
+         document.myForm.sdt_user.focus() ;
+         return false;
+      }
+      if( document.myForm.diachi_user.value == "" ) {
+         alert( "Vui lòng nhập Địa Chỉ" );
+         document.myForm.diachi_user.focus() ;
+         return false;
+      }
+      if( document.myForm.avatar.value == "" ) {
+         alert( "Vui lòng chọn Hình ảnh Đại Diện" );
+         document.myForm.avatar.focus() ;
+
+         return false;
+         
+      }
+      if( document.myForm.gmail_user.value == "" ) {
+         alert( "Vui lòng nhập Email" );
+         document.myForm.gmail_user.focus() ;
+
+         return false;
+         
+      }
+      if( document.myForm.tentaikhoan_user.value == "" ) {
+         alert( "Vui lòng nhập Username" );
+         document.myForm.tentaikhoan_user.focus() ;
+
+         return false;
+         
+      }
+      if( document.myForm.password_user.value == "" ) {
+         alert( "Vui lòng nhập Password" );
+         document.myForm.password_user.focus() ;
+
+         return false;
+         
+      }
+      
+      
+   }
+        
+    </script>

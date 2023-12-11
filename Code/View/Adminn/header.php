@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.4/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Create Products</title>
+    <title>Admin</title>
 </head>
 
 <body>
@@ -82,8 +83,15 @@
                     <details>
                         <summary>Order</summary>
                         <ul class="p-2">
-                            <li><a href="index.php?act=addbill">Create</a></li>
                             <li><a href="index.php?act=listbill">Table</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li tabindex="0">
+                    <details>
+                        <summary>Thống Kê</summary>
+                        <ul class="p-2">
+                            <li><a href="index.php?act=bieudo">Biểu Đồ</a></li>
                         </ul>
                     </details>
                 </li>
