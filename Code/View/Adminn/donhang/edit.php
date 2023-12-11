@@ -31,8 +31,16 @@
                     <input type="text" placeholder="Title" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md" name="phuongthuc_thanhtoan" value="<?= $edit_bill['phuongthuc_thanhtoan']  ?>">
                     <label class="block font-semibold"> Tổng Tiền </label>
                     <input type="text" placeholder="Title" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md" name="tongtien" value="<?= $edit_bill['tongtien']  ?>vnd">
-                    <label class="block font-semibold"> Trạng Thái Đơn </label>
-                    <input type="text" placeholder="Title" class="border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-indigo-500 focus:ring-1 rounded-md" name="trangthai_bill" value="<?= $edit_bill['trangthai_bill']  ?>">
+<br> <br>
+                    <select name="trangthai_bill" id="" class="the-select font-semibold">
+                        <option value="<?= null ?>">Trạng thái đơn</option>
+                        <option value="<?= 'Đã xác nhận' ?>">Đã xác nhận</option>
+                        <option value="<?= 'Đã giao cho đơn vị vận chuyển' ?>">Đã giao cho đơn vị vận chuyển</option>
+                        <option value="<?= 'Đang giao hàng' ?>">Đang giao hàng</option>
+                        <option value="<?= 'Giao thành công' ?>">Giao thành công</option>
+                        <option value="<?= 'Giao thất bại' ?>">Giao thất bại</option>
+                    </select>
+<br>
 
                     <br> <br>
                     <div class="flex justify-between items-baseline">
@@ -44,5 +52,26 @@
     </form>
     <a href="index.php?act=listbill" class="btn btn-success">List Order</a>
 </body>
+<style>
+ select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(../../Images/select.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
 
+
+</style>
 </html>

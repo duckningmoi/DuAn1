@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 10:20 AM
+-- Generation Time: Dec 09, 2023 at 01:53 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -44,9 +44,11 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`id_bill`, `diachi_giaohang`, `sdt_nguoinhan`, `ten_nguoinhan`, `phuongthuc_thanhtoan`, `tongtien`, `id_user`, `trangthai_bill`, `thoigiandathang`) VALUES
-(17, 'Phương Canh, Nam Từ Liêm, HN', '0353195203', 'Bùi Đức Ninh', 'COD', 238000, 1, 'đã giao cho đơn vị vận chuyển', '06:38:28'),
-(18, 'Phương Canh, Nam Từ Liêm, HN', '0353195203', 'Bùi Đức Ninh', 'COD', 525000, 1, 'đã giao cho đơn vị vận chuyển', '12:03:39'),
-(19, 'Hưng Hà ,Thái Bình', '00012', 'Nguyễn Thị Ngọc Anh', 'COD', 574000, 2, NULL, '05:17:56');
+(31, 'Phương Canh, Nam Từ Liêm, HN', '0353195203', 'Bùi Đức Ninh', 'COD', 231000, 1, 'Giao thành công', '09:23:41'),
+(32, 'Phương Canh, Nam Từ Liêm, HN', '0353195203', 'Bùi Đức Ninh', 'COD', 84000, 1, 'Giao thành công', '09:25:24'),
+(35, 'Phương Canh, Nam Từ Liêm, HN', '0353195203', 'Bùi Đức Ninh', 'COD', 231000, 1, 'Giao thành công', '04:29:16'),
+(36, 'Phương Canh, Nam Từ Liêm, HN', '0353195203', 'Bùi Đức Ninh', 'COD', 134000, 1, 'Giao thành công', '11:34:05'),
+(37, 'Phương Canh, Nam Từ Liêm, HN', '0353195203', 'Bùi Đức Ninh', 'COD', 441000, 1, NULL, '11:40:37');
 
 -- --------------------------------------------------------
 
@@ -70,9 +72,12 @@ INSERT INTO `binhluan` (`id_binhluan`, `noidung_binhluan`, `id_sanpham`, `id_use
 (8, 'ôi dep qua di', 1, 2, '2023-11-22'),
 (9, '', 1, 2, '2023-11-22'),
 (10, 'waoo', 1, 2, '2023-11-22'),
-(11, '123', 1, 2, '2023-11-22'),
 (12, 'ao nay chat qua', 5, 1, '2023-11-25'),
-(13, '', 5, 1, '2023-11-25');
+(13, '', 5, 1, '2023-11-25'),
+(14, 'ao gia re, chat luong caoo', 19, 1, '2023-12-08'),
+(15, '', 19, 1, '2023-12-08'),
+(16, '', 19, 1, '2023-12-08'),
+(17, 'ao size L hoi chat', 19, 1, '2023-12-08');
 
 -- --------------------------------------------------------
 
@@ -95,15 +100,18 @@ CREATE TABLE `chitiet_bill` (
 --
 
 INSERT INTO `chitiet_bill` (`id_chitietbill`, `soluong_chitiet`, `size_chitiet`, `gia_chitiet`, `id_bill`, `id_chitietsanpham`, `id_sanpham`) VALUES
-(6, 1, 'L', 49000, 17, 1, NULL),
-(7, 2, 'L', 49000, 17, 4, NULL),
-(8, 1, 'L', 56000, 17, 8, NULL),
-(9, 6, 'L', 49000, 18, 1, NULL),
-(10, 4, 'L', 49000, 18, 4, NULL),
-(11, 8, 'L', 49000, 19, 1, NULL),
-(12, 1, 'L', 49000, 19, 4, NULL),
-(13, 1, 'XL', 49000, 19, 5, NULL),
-(14, 1, 'L', 49000, 19, 7, NULL);
+(30, 1, 'L', 49000, 29, 28, NULL),
+(31, 5, 'L', 49000, 29, 32, NULL),
+(32, 1, 'L', 49000, 31, 28, NULL),
+(33, 3, 'L', 49000, 31, 30, NULL),
+(34, 1, 'L', 49000, 32, 28, NULL),
+(35, 4, 'L', 49000, 35, 30, NULL),
+(36, 1, 'XL', 99000, 36, 38, NULL),
+(37, 9, 'L', 49000, 37, 41, NULL),
+(38, 1, 'M', 49000, 39, 29, NULL),
+(39, 1, 'L', 49000, 40, 32, NULL),
+(40, 1, 'L', 49000, 41, 32, NULL),
+(41, 1, 'L', 49000, 42, 49, NULL);
 
 -- --------------------------------------------------------
 
@@ -123,7 +131,14 @@ CREATE TABLE `chitiet_giohang` (
 --
 
 INSERT INTO `chitiet_giohang` (`id_chitietgiohang`, `id_chitietsanpham`, `id_giohang`, `tongtien`) VALUES
-(180, 1, 2, NULL);
+(259, 41, 0, NULL),
+(260, 46, 0, NULL),
+(263, 28, 2, NULL),
+(264, 28, 2, NULL),
+(265, 28, 2, NULL),
+(266, 28, 2, NULL),
+(267, 28, 2, NULL),
+(268, 28, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,12 +162,30 @@ CREATE TABLE `chitiet_sanpham` (
 --
 
 INSERT INTO `chitiet_sanpham` (`id_chitietsanpham`, `soluongtonkho`, `soluongdaban`, `size_chitiet`, `gia_chitiet`, `id_sanpham`, `mausang`, `mautoi`) VALUES
-(1, 250, 25, 'L', 49000, 1, NULL, NULL),
-(3, 100, 10, 'M', 49000, 1, NULL, NULL),
-(4, 120, 70, 'L', 49000, 3, 'a.png', 'b.png'),
-(5, 10, 11, 'XL', 49000, 1, '1.png', '2.png'),
-(7, 123, 2, 'L', 49000, 4, '8.png', '7.png'),
-(8, 30, 12, 'L', 56000, 5, NULL, NULL);
+(1, 1011, 101, 'M', 50000, 19, NULL, NULL),
+(28, 250, 25, 'L', 49000, 1, NULL, NULL),
+(29, 100, 10, 'M', 49000, 1, NULL, NULL),
+(30, 120, 70, 'L', 49000, 3, 'a.png', 'b.png'),
+(31, 10, 11, 'XL', 49000, 1, '1.png', '2.png'),
+(32, 123, 2, 'L', 49000, 4, '8.png', '7.png'),
+(33, 30, 12, 'L', 56000, 5, NULL, NULL),
+(34, 200, 12, 'L', 45000, 4, NULL, NULL),
+(35, 123, 23, 'M', 50000, 7, NULL, NULL),
+(36, 123, 21, 'M', 99000, 16, NULL, NULL),
+(37, 341, 67, 'L', 99000, 17, NULL, NULL),
+(38, 198, 65, 'XL', 99000, 18, NULL, NULL),
+(39, 654, 34, 'XL', 99000, 19, NULL, NULL),
+(40, 30, 11, 'M', 49000, 6, NULL, NULL),
+(41, 89, 21, 'L', 49000, 19, NULL, NULL),
+(42, 567, 54, 'XL', 49000, 18, NULL, NULL),
+(43, 543, 54, 'L', 50000, 9, NULL, NULL),
+(44, 533, 54, 'XL', 49000, 10, NULL, NULL),
+(45, 532, 78, 'M', 49000, 11, NULL, NULL),
+(46, 3244, 65, 'XL', 90000, 12, NULL, NULL),
+(47, 654, 12, 'M', 54000, 13, NULL, NULL),
+(48, 458, 32, 'XL', 56000, 14, NULL, NULL),
+(49, 871, 64, 'L', 49000, 15, NULL, NULL),
+(50, 2341, 2, 'L', 49000, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -172,9 +205,35 @@ CREATE TABLE `danhmuc` (
 --
 
 INSERT INTO `danhmuc` (`id_danhmuc`, `ten_danhmuc`, `img_danhmuc`, `parent_danhmuc`) VALUES
-(1, 'Shirts', '', NULL),
-(2, 'Shots', '', NULL),
-(3, 'Hoodie', NULL, NULL);
+(1, 'Shirts', 'danhmuc_shirt.png', NULL),
+(2, 'Shots', 'danhmuc_short.png', NULL),
+(3, 'Hoodie', 'danhmuc_hoodie.png', NULL),
+(4, 'Sweater', 'danhmuc_sweater.png', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doanhthu`
+--
+
+CREATE TABLE `doanhthu` (
+  `id_doanhthu` int(11) NOT NULL,
+  `id_billdone` int(11) DEFAULT NULL,
+  `id_sanphamdone` int(11) DEFAULT NULL,
+  `tien_done` int(11) DEFAULT NULL,
+  `soluongsp` int(11) DEFAULT NULL,
+  `id_billfalse` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `doanhthu`
+--
+
+INSERT INTO `doanhthu` (`id_doanhthu`, `id_billdone`, `id_sanphamdone`, `tien_done`, `soluongsp`, `id_billfalse`) VALUES
+(17, 36, 18, 134000, 1, NULL),
+(18, 35, 3, 231000, 4, NULL),
+(19, 35, 3, 231000, 4, NULL),
+(20, 31, 1, 231000, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -193,7 +252,9 @@ CREATE TABLE `giohang` (
 
 INSERT INTO `giohang` (`id_giohang`, `id_user`) VALUES
 (2, 1),
-(1, 2);
+(1, 2),
+(3, 61),
+(4, 62);
 
 -- --------------------------------------------------------
 
@@ -216,20 +277,24 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`id_sanpham`, `title_sanpham`, `img_sanpham`, `subtitle_sanpham`, `description_sanpham`, `hot_sanpham`, `id_danhmuc`) VALUES
-(1, '001 BlokeCore T-Shirt/White-Black', '1.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
-(3, 'Simple Short', 'a.png', NULL, 'đây là quần', NULL, 2),
-(4, 'DISSOLVE 3D T-SHIRT', '7.png', NULL, 'vừa mới thêm', NULL, 1),
-(5, 'ANCIENT ASIA T-SHIRT', '9.png', NULL, NULL, NULL, 1),
-(6, 'CRYSTALLLIZE T-SHIRT', '10.png', NULL, NULL, NULL, 1),
-(7, 'ROSE T-SHIRT', '11.png', NULL, NULL, NULL, 1),
-(8, 'WORLD MAP T-SHIRT', '12.png', NULL, NULL, NULL, 1),
-(9, 'SKATEBOARDING T-SHIRT', '13.png', NULL, NULL, NULL, 1),
-(10, 'ZODIAC T-SHIRT', '14.png', NULL, NULL, NULL, 1),
-(11, 'SIMPLE SHORT/BEIGE', 'c.png', NULL, NULL, NULL, 2),
-(12, 'SIMPLE HOODIE/NAVY', 'I.png', NULL, NULL, NULL, 3),
-(13, 'SIMPLE HOODIE/GRAY', 'II.png', NULL, NULL, NULL, 3),
-(14, 'SIMPLE HOODIE/WHITE', 'III.png', NULL, NULL, NULL, 3),
-(15, 'SIMPLE HOODIE/BLACK', 'IV.png', NULL, NULL, NULL, 3);
+(1, 'BlokeCore T-Shirt', '1.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(3, 'Simple Short', 'a.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 2),
+(4, 'DISSOLVE 3D T-SHIRT', '7.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(5, 'ANCIENT ASIA T-SHIRT', '9.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(6, 'CRYSTALLLIZE T-SHIRT', '10.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(7, 'ROSE T-SHIRT', '11.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(8, 'WORLD MAP T-SHIRT', '12.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(9, 'SKATEBOARD T-SHIRT', '13.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(10, 'ZODIAC T-SHIRT', '14.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 1),
+(11, 'SIMPLE SHORT/BEIGE', 'c.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 2),
+(12, 'SIMPLE HOODIE/NAVY', 'I.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 3),
+(13, 'SIMPLE HOODIE/GRAY', 'II.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 3),
+(14, 'SIMPLE HOODIE/WHITE', 'III.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 3),
+(15, 'SIMPLE HOODIE/BLACK', 'IV.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 23cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:24cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:25cm.', NULL, 3),
+(16, 'Simple Sweater/Gray', '.1.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 63cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:64cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:65cm.', NULL, 4),
+(17, 'Simple Sweater/Navy', '.2.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 63cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:64cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:65cm.', NULL, 4),
+(18, 'Simple Sweater/White', '.3.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 63cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:64cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:65cm.', NULL, 4),
+(19, 'Simple Sweater/Black', '.4.png', NULL, 'Size M:Chiều dài:70.5cm, chiều ngang:55.5cm, chiều dài tay: 63cm\r\nSize L:Chiều dài:72.5cm, chiều ngang:57cm, chiều dài tay:64cm\r\nSize XL:Chiều dài:74.5cm. chiều ngang:58.5cm, chiều dài tay:65cm.', NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -255,7 +320,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `ten_user`, `sdt_user`, `diachi_user`, `gmail_user`, `tentaikhoan_user`, `password_user`, `role`, `avatar`) VALUES
 (1, 'Bùi Đức Ninh', '0353195203', 'Phương Canh, Nam Từ Liêm, HN', 'buiducninh12@gmail.com', 'admin', '1234', 1, 'con-meo-tieng-trung-la-gi.png'),
-(2, 'Nguyễn Thị Ngọc Anh', '00012', 'Hưng Hà ,Thái Bình', 'ccuuaa2004@gmail.com', 'client1', '123456', NULL, 'z4259403577205_b9529356e4545892f802b2e35375a28f.jpg');
+(2, 'Nguyễn Thị Ngọc Anh', '00012', 'Hưng Hà ,Thái Bình', 'ccuuaa2004@gmail.com', 'client1', '123456', NULL, 'z4259403577205_b9529356e4545892f802b2e35375a28f.jpg'),
+(61, 'duckning', '045153', '', 'buiducnnh@gmail.com', 'ninh12', '1234', 0, 'du lịch môn phát triển bản thân6.jpg'),
+(62, 'buy duk nink', '123456', 'ha tay', 'buiducninh1221@gmail.com', 'duckningg', '1234', 0, 'du lịch môn phát triển bản thân5.jpg');
 
 -- --------------------------------------------------------
 
@@ -328,6 +395,13 @@ ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`id_danhmuc`);
 
 --
+-- Indexes for table `doanhthu`
+--
+ALTER TABLE `doanhthu`
+  ADD PRIMARY KEY (`id_doanhthu`),
+  ADD KEY `id_billdone` (`id_billdone`);
+
+--
 -- Indexes for table `giohang`
 --
 ALTER TABLE `giohang`
@@ -361,55 +435,61 @@ ALTER TABLE `voucher`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id_bill` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_bill` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `id_binhluan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_binhluan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `chitiet_bill`
 --
 ALTER TABLE `chitiet_bill`
-  MODIFY `id_chitietbill` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_chitietbill` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `chitiet_giohang`
 --
 ALTER TABLE `chitiet_giohang`
-  MODIFY `id_chitietgiohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
+  MODIFY `id_chitietgiohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=269;
 
 --
 -- AUTO_INCREMENT for table `chitiet_sanpham`
 --
 ALTER TABLE `chitiet_sanpham`
-  MODIFY `id_chitietsanpham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_chitietsanpham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id_danhmuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_danhmuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `doanhthu`
+--
+ALTER TABLE `doanhthu`
+  MODIFY `id_doanhthu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `giohang`
 --
 ALTER TABLE `giohang`
-  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_giohang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_sanpham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_sanpham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `voucher`
@@ -451,6 +531,12 @@ ALTER TABLE `chitiet_giohang`
 --
 ALTER TABLE `chitiet_sanpham`
   ADD CONSTRAINT `chitiet_sanpham_ibfk_1` FOREIGN KEY (`id_sanpham`) REFERENCES `sanpham` (`id_sanpham`);
+
+--
+-- Constraints for table `doanhthu`
+--
+ALTER TABLE `doanhthu`
+  ADD CONSTRAINT `doanhthu_ibfk_1` FOREIGN KEY (`id_billdone`) REFERENCES `bill` (`id_bill`);
 
 --
 -- Constraints for table `giohang`

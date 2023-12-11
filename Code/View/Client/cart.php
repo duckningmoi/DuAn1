@@ -50,7 +50,6 @@ if (isset($thongbao)) { ?>
     }
     ?>
     Tổng Tiền: <?= $sum ?>đ <br>
-    
    <a href="index.php?act=thanhtoan"><button class="tt">   Thanh Toán</button></a>
 </div>
 

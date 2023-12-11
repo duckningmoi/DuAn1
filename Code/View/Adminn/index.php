@@ -1,4 +1,6 @@
+
 <?php
+
 session_start();
 include "../../Model/pdo.php";
 include "../../Model/sanpham.php";
@@ -7,8 +9,13 @@ include "../../Model/cart.php";
 include "../../Model/binhluan.php";
 include "../../Model/danhmuc.php";
 include "../../Model/phantrang.php";
-include "../../View/Adminn/header.php";
 
+if(empty($_SESSION['admin'])){
+    echo "Bạn khong phải admin";
+    header("location : ../../View/Client/");
+    die;
+}
+include "../../View/Adminn/header.php";
 if (isset($_GET['act']) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -145,6 +152,7 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             break;
         case "deldm":
             delete_danhmuc($_GET['id']);
+            $all_danhmuc = all_danhmuc();
             $thongbao = "Xóa Danh Mục Thành Công";
             include "../../View/Adminn/danhmuc/list.php";
             break;
@@ -237,6 +245,22 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
                 $trangthai_bill = $_POST['trangthai_bill'];
                 editbill($id_bill, $diachi_giaohang , $sdt_nguoinhan , $ten_nguoinhan , $phuongthuc_thanhtoan , $tongtien , $trangthai_bill);
                 $thongbao = "Sửa đơn hàng thành công";
+                if($trangthai_bill == 'Giao thành công'){
+                    $select_spbill = select_spinbill($id_bill);
+                    $del_slsp = del_slsp($id_bill);
+                    foreach ($del_slsp as $del){
+                        if($del['id_chitietsanpham'] == true ){
+                            thucthi_delsl($del['soluong_chitiet'],$del['id_chitietsanpham']);
+                        }
+                       
+                    }
+                    add_doanhthu($id_bill , $select_spbill['id_sanpham']  , $tongtien , $select_spbill['soluong_chitiet']);
+
+                }
+                if($trangthai_bill == 'Giao thất bại'){
+                    $select_spbill = select_spinbill($id_bill);
+                    add_doanhthufalse( $id_bill);
+                }
             }
             include "../../View/Adminn/donhang/edit.php";
             break;
@@ -247,9 +271,34 @@ if (isset($_GET['act']) && ($_GET['act'] != "")) {
             $thongbao = "Xóa Thành Công";
             include "../../View/Adminn/donhang/list.php";
             break;
+
+        case "bieudo":
+            $refwda =slsptrongkho();
+            $slsptrongkho = $refwda['slsptrongkho'];
+            $mngdbfd = slspadmin();
+            $slspadmin  = $mngdbfd['slspadmin'];
+            $jyhgrf = sldanhmuc();
+            $sldanhmuc = $jyhgrf['sldanhmuc'];
+            $bieudo = bieudo();
+            $spbanchay =one_sanphamadmin($bieudo['spmax']);
+            include "../../View/Adminn/thongke/bieudo.php";
+            break;
     }
 
 
 }
+else{
+    $refwda =slsptrongkho();
+    $slsptrongkho = $refwda['slsptrongkho'];
+    $mngdbfd = slspadmin();
+    $slspadmin  = $mngdbfd['slspadmin'];
+    $jyhgrf = sldanhmuc();
+    $sldanhmuc = $jyhgrf['sldanhmuc'];
+    $bieudo = bieudo();
+    $spbanchay =one_sanphamadmin($bieudo['spmax']);
+    include "../../View/Adminn/thongke/bieudo.php";
+}
+ 
 
 include "../../View/Adminn/footer.php";
+?>

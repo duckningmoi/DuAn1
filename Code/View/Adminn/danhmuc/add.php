@@ -1,7 +1,7 @@
 <?php if(isset($thongbao)) { ?>
 <script> alert("<?= $thongbao ?>") </script>
     <?php } ?>
-<form class=" flex min-h-screen text-gray-800 antialiased flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12" action="" enctype="multipart/form-data" method="post">
+<form class=" flex min-h-screen text-gray-800 antialiased flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12"  name="myForm" onsubmit = "return(validate());" action="" enctype="multipart/form-data" method="post">
     <div class="relative py-3 sm:w-96 mx-auto text-center">
         <span class="text-2xl font-light ">Thêm Mới Loại Hàng Hóa </span>
         <div class="mt-4 bg-white shadow-md rounded-lg text-left">
@@ -20,3 +20,24 @@
     </div>
 </form>
 <a href="index.php?act=listdm" class="btn btn-success">List Category</a>
+<script>
+        function validate() {
+      
+      if( document.myForm.ten_danhmuc.value == "" ) {
+         alert( "Vui lòng nhập Tên Danh Mục mới" );
+         document.myForm.ten_danhmuc.focus() ;
+         return false;
+      }
+      
+      if( document.myForm.img_danhmuc.value == "" ) {
+         alert( "Vui lòng chọn Hình ảnh" );
+         document.myForm.img_danhmuc.focus() ;
+
+         return false;
+         
+      }
+      
+      
+   }
+        
+    </script>

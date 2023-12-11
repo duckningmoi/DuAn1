@@ -92,13 +92,23 @@ function select_bill_all(){
     $select_bill_all = pdo_query($sql);
     return $select_bill_all;
 }
+function madonvan(){
+    $sql = "SELECT MAX(id_bill) as madon FROM bill";
+    $madonvan = pdo_query_one($sql);
+    return $madonvan;
+
+}
 
 function distinct_bill($id_user){
-    $sql = "SELECT DISTINCT id_bill, trangthai_bill , phuongthuc_thanhtoan , tongtien FROM bill WHERE id_user=$id_user";
+    $sql = "SELECT DISTINCT id_bill, trangthai_bill , phuongthuc_thanhtoan , tongtien  FROM bill WHERE id_user=$id_user order by(id_bill) desc";
     $distinct_bill = pdo_query($sql);
     return $distinct_bill;
 }
-
+function select_tkbill( $kyw){
+    $sql = "SELECT DISTINCT id_bill, trangthai_bill , phuongthuc_thanhtoan , tongtien  FROM bill WHERE id_bill=$kyw";
+    $select_tkbill = pdo_query($sql);
+    return $select_tkbill;
+}
 function huydonhang($id_bill){
     $sql = "DELETE FROM bill WHERE id_bill=$id_bill";
     pdo_execute($sql);
@@ -114,10 +124,56 @@ function edit_bill($id_bill){
     return $edit_bill;
 }
 
+function select_spinbill($id_bill){
+    $sql = "SELECT * FROM bill b INNER JOIN chitiet_bill c on(b.id_bill=c.id_bill) INNER JOIN chitiet_sanpham t on(c.id_chitietsanpham=t.id_chitietsanpham) INNER JOIN sanpham p on(t.id_sanpham=p.id_sanpham) WHERE b.id_bill=$id_bill";
+    $select_spbill = pdo_query_one($sql);
+    return $select_spbill;
+}
+
 function editbill($id_bill, $diachi_giaohang , $sdt_nguoinhan , $ten_nguoinhan , $phuongthuc_thanhtoan , $tongtien , $trangthai_bill){
     $sql = "UPDATE bill SET diachi_giaohang='$diachi_giaohang' , sdt_nguoinhan='$sdt_nguoinhan' , ten_nguoinhan='$ten_nguoinhan' , phuongthuc_thanhtoan='$phuongthuc_thanhtoan' , tongtien='$tongtien' , trangthai_bill='$trangthai_bill' WHERE id_bill='$id_bill'";
     pdo_execute($sql);
     
 }
 
+function add_doanhthu($id_billdone , $id_sanphamdone , $tien_done ,$soluong_sp){
+    $sql = "INSERT INTO doanhthu (id_billdone , id_sanphamdone , tien_done , soluongsp) VALUE ('$id_billdone' , '$id_sanphamdone' , '$tien_done' , '$soluong_sp')";
+    pdo_execute($sql);
+}   
+function add_doanhthufalse( $id_billfalse){
+    $sql = "INSERT INTO doanhthu ( id_billfalse) VALUE ( '$id_billfalse')";
+    pdo_execute($sql);
+}  
+function bieudo(){
+    $sql = "SELECT MAX(id_sanphamdone) as spmax , COUNT(id_doanhthu) as sl_don , SUM(tien_done) as thunhap , SUM(soluongsp) as sospbanra ,SUM(id_billfalse) as giaothatbai  FROM doanhthu
+    GROUP BY id_billdone
+    ORDER BY sospbanra DESC";
+    $bieudo = pdo_query_one($sql);
+    return $bieudo;
+}
+function slsptrongkho(){
+    $sql = "SELECT SUM(soluongtonkho) as 'slsptrongkho' FROM chitiet_sanpham";
+    $slsptrongkho = pdo_query_one($sql);
+    return $slsptrongkho;
+}
+function slspadmin(){
+    $sql =  "SELECT count(id_sanpham) as 'slspadmin' from sanpham";
+    $slspadmin = pdo_query_one($sql);
+    return $slspadmin;
+}
+function sldanhmuc(){
+    $sql = "select count(id_danhmuc) as sldanhmuc from danhmuc";
+    $sldanhmuc = pdo_query_one($sql);
+    return $sldanhmuc;
+}
+
+function del_slsp($id_bill){
+    $sql = "SELECT * FROM bill b inner join chitiet_bill c on(b.id_bill=c.id_bill) inner join chitiet_sanpham s on(c.id_chitietsanpham=s.id_chitietsanpham) WHERE b.id_bill=$id_bill";
+    $del_slsp = pdo_query($sql);
+    return $del_slsp;
+}
+function thucthi_delsl($soluong_chitiet,$id_chitietsanpham){
+    $sql = "UPDATE chitiet_sanpham SET `soluongtonkho`=(`soluongtonkho`-$soluong_chitiet) WHERE id_chitietsanpham=$id_chitietsanpham";
+    pdo_execute($sql);
+}
 ?>
